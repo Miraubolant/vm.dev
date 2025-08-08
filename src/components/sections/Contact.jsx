@@ -61,7 +61,7 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'victor@mirault.dev',
+      value: 'victor@mirault.com',
       description: 'Réponse sous 2h garantie'
     },
     {
