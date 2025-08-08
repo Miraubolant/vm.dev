@@ -39,8 +39,8 @@ const Hero = () => {
             <AnimatedText 
               text="Besoin d'un site Web ?"
               className="text-gradient"
-              speed={80}
-              delay={500}
+              speed={50}
+              delay={300}
               showCursor={true}
               cursorColor="bg-gradient-to-r from-red-500 to-orange-500"
             />
@@ -51,13 +51,13 @@ const Hero = () => {
             className="mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 4, duration: 0.8 }}
+            transition={{ delay: 2.5, duration: 0.6 }}
           >
             <h2 className="font-orbitron font-bold text-2xl md:text-4xl text-blue-300 mb-4">
               <AnimatedText 
                 text={HERO_CONTENT.subtitle}
-                speed={100}
-                delay={4500}
+                speed={60}
+                delay={2800}
                 showCursor={true}
                cursorColor="bg-white"
                className="text-white"
@@ -70,7 +70,7 @@ const Hero = () => {
             className="mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 6, duration: 0.8 }}
+            transition={{ delay: 4, duration: 0.6 }}
           >
             <p className="font-orbitron font-medium text-lg md:text-xl text-gradient mb-4 max-w-4xl mx-auto">
               {HERO_CONTENT.tagline}
@@ -82,7 +82,7 @@ const Hero = () => {
             className="mb-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 7, duration: 0.8 }}
+            transition={{ delay: 4.5, duration: 0.6 }}
           >
             <p className="font-inter text-lg text-gray-300 max-w-2xl mx-auto">
               {HERO_CONTENT.description}
@@ -94,7 +94,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 8, duration: 0.8 }}
+            transition={{ delay: 5, duration: 0.6 }}
           >
             <Button
               variant="primary"
