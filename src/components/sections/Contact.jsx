@@ -67,7 +67,7 @@ const Contact = () => {
     {
       icon: Phone,
       label: 'Téléphone',
-      value: '+33 6 XX XX XX XX',
+      value: '+33 6 43 51 76 80',
       description: 'Disponible 9h-19h'
     },
     {
