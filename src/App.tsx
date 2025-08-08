@@ -1,9 +1,9 @@
 import React from 'react';
 import Layout from './components/layout/Layout';
 import Hero from './components/sections/Hero';
-import About from './components/sections/About';
-import InteractiveDemo from './components/sections/InteractiveDemo';
 import Process from './components/sections/Process';
+import InteractiveDemo from './components/sections/InteractiveDemo';
+import About from './components/sections/About';
 import Portfolio from './components/sections/Portfolio';
 import Contact from './components/sections/Contact';
 import './styles/globals.css';
@@ -14,9 +14,9 @@ function App() {
     <Layout>
       <PerformanceOptimizer />
       <Hero />
-      <About />
-      <InteractiveDemo />
       <Process />
+      <InteractiveDemo />
+      <About />
       <Portfolio />
       <Contact />
     </Layout>
