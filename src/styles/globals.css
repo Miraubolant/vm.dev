@@ -21,7 +21,6 @@ body {
   background: var(--primary-dark);
   color: var(--text-light);
   overflow-x: hidden;
-  cursor: none;
 }
 
 .font-orbitron {

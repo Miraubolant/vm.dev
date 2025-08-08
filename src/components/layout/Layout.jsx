@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import CustomCursor from '../ui/CustomCursor';
 import ScrollProgressBar from '../effects/ScrollProgressBar';
 import FloatingActionButton from '../ui/FloatingActionButton';
 import CookieBanner from '../ui/CookieBanner';
@@ -43,7 +42,6 @@ const Layout = ({ children }) => {
     <div className="min-h-screen bg-primary-dark">
       <SEOHead />
       <SitemapGenerator />
-      <CustomCursor />
       <ScrollProgressBar />
       <Header />
       <main>{children}</main>
