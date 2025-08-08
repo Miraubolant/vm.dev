@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import './variables.css';
+@import './animations.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--primary-dark);
+  color: var(--text-light);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+.font-orbitron {
+  font-family: 'Orbitron', monospace;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--electric-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyber-purple);
+}
+
+/* Selection */
+::selection {
+  background: var(--neon-red);
+  color: var(--text-light);
+}
+
+.section-padding {
+  padding: var(--spacing-xxl) var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: var(--spacing-xxl) var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 6rem var(--spacing-xxl);
+  }
+}

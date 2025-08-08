@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://victormirault.dev/sitemap.xml
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /.env
+Disallow: /api/private/
+
+# Allow all crawlers to access main content
+Allow: /#about
+Allow: /#demo
+Allow: /#portfolio
+Allow: /#process
+Allow: /#contact
