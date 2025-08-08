@@ -9,10 +9,10 @@ export const SECTIONS = {
 
 export const NAVIGATION_ITEMS = [
   { label: 'Accueil', href: '#hero' },
-  { label: 'Pourquoi moi', href: '#process' },
+  { label: 'À propos', href: '#about' },
   { label: 'Démo', href: '#demo' },
-  { label: 'Stack', href: '#about' },
   { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Processus', href: '#process' },
   { label: 'Contact', href: '#contact' }
 ];
 
