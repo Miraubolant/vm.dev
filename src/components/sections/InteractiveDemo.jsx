@@ -344,7 +344,7 @@ const InteractiveDemo = () => {
 
         {/* Demo Stats */}
         <motion.div
-          className="mt-6 grid grid-cols-3 gap-4"
+          className="mt-6 grid grid-cols-3 gap-4 mx-4 md:mx-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ 
             opacity: inView ? 1 : 0, 
