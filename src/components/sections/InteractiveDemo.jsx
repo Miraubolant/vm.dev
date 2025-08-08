@@ -223,122 +223,121 @@ const InteractiveDemo = () => {
             }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <div className="space-y-6">
-              {/* View Mode Switcher */}
-              <div className="flex justify-center">
-                <div className="bg-glass rounded-lg p-2 border-neon flex space-x-2">
-                  <button
-                    onClick={() => setViewMode('desktop')}
-                    className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all cursor-pointer ${
-                      viewMode === 'desktop'
-                        ? 'bg-neon-red text-white'
-                        : 'text-gray-400 hover:text-white hover:bg-electric-blue/20'
-                    }`}
-                  >
-                    <Monitor className="w-5 h-5" />
-                    <span>Desktop</span>
-                  </button>
-                  <button
-                    onClick={() => setViewMode('mobile')}
-                    className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all cursor-pointer ${
-                      viewMode === 'mobile'
-                        ? 'bg-neon-red text-white'
-                        : 'text-gray-400 hover:text-white hover:bg-electric-blue/20'
-                    }`}
-                  >
-                    <Smartphone className="w-5 h-5" />
-                    <span>Mobile</span>
-                  </button>
-                </div>
-              </div>
+            <div className="flex space-x-4 mb-6">
+              <motion.button
+                onClick={() => setViewMode('desktop')}
+                className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-all cursor-pointer font-orbitron font-medium ${
+                  viewMode === 'desktop'
+                    ? 'bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-lg scale-105'
+                    : 'text-gray-400 hover:text-white hover:bg-electric-blue/30 hover:scale-102'
+                }`}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Monitor className="w-5 h-5" />
+                <span>Desktop</span>
+              </motion.button>
+              <motion.button
+                onClick={() => setViewMode('mobile')}
+                className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-all cursor-pointer font-orbitron font-medium ${
+                  viewMode === 'mobile'
+                    ? 'bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-lg scale-105'
+                    : 'text-gray-400 hover:text-white hover:bg-electric-blue/30 hover:scale-102'
+                }`}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Smartphone className="w-5 h-5" />
+                <span>Mobile</span>
+              </motion.button>
+            </div>
 
-              {/* Preview Container */}
-              <div className={`relative ${
-                viewMode === 'mobile' ? 'max-w-sm mx-auto' : ''
-              }`}>
-                <AnimatePresence mode="wait">
-                  {viewMode === 'mobile' ? (
-                    /* Mobile Frame */
-                    <motion.div
-                      key="mobile-frame"
-                      className="relative"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.8 }}
-                      transition={{ duration: 0.4 }}
-                    >
-                      {/* Phone Shadow */}
-                      <div className="absolute inset-0 bg-black/20 rounded-[3rem] blur-xl transform translate-y-4 scale-105"></div>
-                      
-                      {/* Phone Frame */}
-                      <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl">
-                        {/* Screen Bezel */}
-                        <div className="bg-black rounded-[2.5rem] p-1">
-                          {/* Screen */}
-                          <div className="bg-white rounded-[2.2rem] overflow-hidden relative">
-                            {/* Status Bar */}
-                            <div className="absolute top-0 left-0 right-0 h-8 bg-black z-20 flex items-center justify-between px-6">
-                              <div className="flex items-center space-x-1">
-                                <div className="text-white text-xs font-medium">9:41</div>
-                              </div>
-                              <div className="flex items-center space-x-1">
-                                <div className="w-4 h-2 border border-white rounded-sm">
-                                  <div className="w-3 h-1 bg-white rounded-sm m-0.5"></div>
-                                </div>
+            {/* Preview Container */}
+            <div className={`relative ${
+              viewMode === 'mobile' ? 'max-w-sm mx-auto' : 'max-w-6xl mx-auto'
+            }`}>
+              <AnimatePresence mode="wait">
+                {viewMode === 'mobile' ? (
+                  /* Mobile Frame */
+                  <motion.div
+                    key="mobile-frame"
+                    className="relative"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    {/* Phone Shadow */}
+                    <div className="absolute inset-0 bg-black/20 rounded-[3rem] blur-xl transform translate-y-4 scale-105"></div>
+                    
+                    {/* Phone Frame */}
+                    <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl">
+                      {/* Screen Bezel */}
+                      <div className="bg-black rounded-[2.5rem] p-1">
+                        {/* Screen */}
+                        <div className="bg-white rounded-[2.2rem] overflow-hidden relative">
+                          {/* Status Bar */}
+                          <div className="absolute top-0 left-0 right-0 h-8 bg-black z-20 flex items-center justify-between px-6">
+                            <div className="flex items-center space-x-1">
+                              <div className="text-white text-xs font-medium">9:41</div>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <div className="w-4 h-2 border border-white rounded-sm">
+                                <div className="w-3 h-1 bg-white rounded-sm m-0.5"></div>
                               </div>
                             </div>
-                            
-                            {/* Dynamic Island */}
-                            <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-black rounded-full z-30"></div>
-                            
-                            {/* Content */}
-                            <div className="pt-10">
-                              <MobilePreview demoState={demoState} activeControl={activeControl} />
-                            </div>
-                            
-                            {/* Home Indicator */}
-                            <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-black rounded-full opacity-60"></div>
                           </div>
+                          
+                          {/* Dynamic Island */}
+                          <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-black rounded-full z-30"></div>
+                          
+                          {/* Content */}
+                          <div className="pt-10">
+                            <MobilePreview demoState={demoState} activeControl={activeControl} />
+                          </div>
+                          
+                          {/* Home Indicator */}
+                          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-black rounded-full opacity-60"></div>
                         </div>
-                        
-                        {/* Side Buttons */}
-                        <div className="absolute left-0 top-20 w-1 h-8 bg-gray-700 rounded-r-full"></div>
-                        <div className="absolute left-0 top-32 w-1 h-12 bg-gray-700 rounded-r-full"></div>
-                        <div className="absolute left-0 top-48 w-1 h-12 bg-gray-700 rounded-r-full"></div>
-                        <div className="absolute right-0 top-32 w-1 h-16 bg-gray-700 rounded-l-full"></div>
                       </div>
-                    </motion.div>
-                  ) : (
-                    /* Desktop Frame */
-                    <motion.div
-                      key="desktop-frame"
-                      className="relative"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.9 }}
-                      transition={{ duration: 0.4 }}
-                    >
-                      {/* Monitor Shadow */}
-                      <div className="absolute inset-0 bg-black/20 rounded-2xl blur-2xl transform translate-y-6 scale-105"></div>
                       
-                      {/* Monitor Frame */}
-                      <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl p-4 shadow-2xl">
-                        {/* Screen Bezel */}
-                        <div className="bg-black rounded-xl p-2">
-                          {/* Screen */}
-                          <div className="bg-glass rounded-lg overflow-hidden border border-electric-blue/30 shadow-inner">
-                            <DesktopPreview demoState={demoState} activeControl={activeControl} />
-                          </div>
+                      {/* Side Buttons */}
+                      <div className="absolute left-0 top-20 w-1 h-8 bg-gray-700 rounded-r-full"></div>
+                      <div className="absolute left-0 top-32 w-1 h-12 bg-gray-700 rounded-r-full"></div>
+                      <div className="absolute left-0 top-48 w-1 h-12 bg-gray-700 rounded-r-full"></div>
+                      <div className="absolute right-0 top-32 w-1 h-16 bg-gray-700 rounded-l-full"></div>
+                    </div>
+                  </motion.div>
+                ) : (
+                  /* Desktop Frame */
+                  <motion.div
+                    key="desktop-frame"
+                    className="relative"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    {/* Monitor Shadow */}
+                    <div className="absolute inset-0 bg-black/20 rounded-2xl blur-2xl transform translate-y-6 scale-105"></div>
+                    
+                    {/* Monitor Frame */}
+                    <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl p-4 shadow-2xl">
+                      {/* Screen Bezel */}
+                      <div className="bg-black rounded-xl p-2">
+                        {/* Screen */}
+                        <div className="bg-glass rounded-lg overflow-hidden border border-electric-blue/30 shadow-inner">
+                          <DesktopPreview demoState={demoState} activeControl={activeControl} />
                         </div>
-                        
-                        {/* Monitor Stand */}
-                        <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-4 bg-gradient-to-b from-gray-700 to-gray-800 rounded-b-lg"></div>
-                        <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-48 h-2 bg-gradient-to-b from-gray-800 to-gray-900 rounded-full"></div>
                       </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                      
+                      {/* Monitor Stand */}
+                      <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-4 bg-gradient-to-b from-gray-700 to-gray-800 rounded-b-lg"></div>
+                      <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-48 h-2 bg-gradient-to-b from-gray-800 to-gray-900 rounded-full"></div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </motion.div>
         </div>
@@ -478,7 +477,7 @@ const DesktopPreview = ({ demoState, activeControl }) => {
           </div>
 
           {/* CTA Section */}
-          <div className="p-8 text-center" style={{ backgroundColor: \`${demoState.primaryColor}15` }}>
+          <div className="p-8 text-center" style={{ backgroundColor: `${demoState.primaryColor}15` }}>
             <button
               className="px-6 py-3 rounded-lg text-white font-semibold hover:opacity-90 transition-opacity"
               style={{ backgroundColor: demoState.primaryColor }}
@@ -497,7 +496,7 @@ const MobilePreview = ({ demoState, activeControl }) => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={\`mobile-${demoState.title}-${demoState.heroImage}-${demoState.primaryColor}`}
+        key={`mobile-${demoState.title}-${demoState.heroImage}-${demoState.primaryColor}`}
         className="relative bg-white"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -551,7 +550,7 @@ const MobilePreview = ({ demoState, activeControl }) => {
         </div>
 
         {/* Mobile CTA Section */}
-        <div className="p-6 text-center" style={{ backgroundColor: \`${demoState.primaryColor}15` }}>
+        <div className="p-6 text-center" style={{ backgroundColor: `${demoState.primaryColor}15` }}>
           <button
             className="w-full py-4 rounded-xl text-white font-bold hover:opacity-90 transition-all hover:scale-105 text-base"
             style={{ backgroundColor: demoState.primaryColor }}
