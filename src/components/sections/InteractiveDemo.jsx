@@ -646,28 +646,33 @@ const MobilePreview = ({ demoState, activeControl }) => {
             
             <div className="flex-1 flex items-center justify-center">
               <div className="text-center text-white px-4">
-              <motion.h1
-                className="text-2xl font-bold mb-3"
-                style={{ color: demoState.primaryColor }}
-                animate={activeControl === 'title' ? { scale: [1, 1.05, 1] } : {}}
-                transition={{ duration: 0.3 }}
-              >
-                {demoState.title}
-              </motion.h1>
-              <motion.p
-                className="text-base"
-                animate={activeControl === 'subtitle' ? { scale: [1, 1.05, 1] } : {}}
-                transition={{ duration: 0.3 }}
-              >
-                {demoState.subtitle}
-              </motion.p>
+                <motion.h1
+                  className="text-2xl font-bold mb-3"
+                  style={{ color: demoState.primaryColor }}
+                  animate={activeControl === 'title' ? { scale: [1, 1.05, 1] } : {}}
+                  transition={{ duration: 0.3 }}
+                >
+                  {demoState.title}
+                </motion.h1>
+                <motion.p
+                  className="text-base mb-4 drop-shadow-md opacity-90"
+                  animate={activeControl === 'subtitle' ? { scale: [1, 1.05, 1] } : {}}
+                  transition={{ duration: 0.3 }}
+                >
+                  {demoState.subtitle}
+                </motion.p>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Mobile Products Section */}
         <div className="p-4">
-          <h2 className="text-xl font-bold mb-4 text-gray-800">Nos Spécialités</h2>
+          <div className="text-center mb-6">
+            <h2 className="text-xl font-bold mb-2 text-gray-800">Nos Spécialités</h2>
+            <div className="w-12 h-1 mx-auto rounded-full" style={{ backgroundColor: demoState.primaryColor }}></div>
+          </div>
+          
           <div className="space-y-3">
             {demoState.products.map((product, index) => (
               <motion.div 
@@ -703,8 +708,7 @@ const MobilePreview = ({ demoState, activeControl }) => {
                     </button>
                   </div>
                 </div>
-              </div>
-            ))}
+              </motion.div>
             ))}
           </div>
         </div>
