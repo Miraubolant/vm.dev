@@ -51,32 +51,44 @@ export const PROCESS_STEPS = [
   {
     icon: '📋',
     title: 'BRIEF EXPRESS',
-    description: 'Échange rapide pour comprendre vos besoins'
+    description: 'Échange rapide pour comprendre vos besoins et définir les objectifs',
+    duration: '1-2h',
+    features: ['Analyse des besoins', 'Définition des objectifs', 'Choix des technologies']
   },
   {
     icon: '🏗️',
     title: 'ARCHITECTURE',
-    description: 'Conception technique et structure'
+    description: 'Conception technique et structure de votre solution',
+    duration: '1 jour',
+    features: ['Architecture technique', 'Base de données', 'Sécurité']
   },
   {
     icon: '🎨',
     title: 'DESIGN INTERFACE',
-    description: 'Interface moderne et intuitive'
+    description: 'Interface moderne et intuitive adaptée à vos utilisateurs',
+    duration: '2-3 jours',
+    features: ['Design responsive', 'UX optimisée', 'Identité visuelle']
   },
   {
     icon: '⚡',
     title: 'DÉVELOPPEMENT',
-    description: 'Code propre et optimisé'
+    description: 'Code propre et optimisé pour les performances',
+    duration: '5-7 jours',
+    features: ['Code optimisé', 'Fonctionnalités avancées', 'Tests unitaires']
   },
   {
     icon: '🔍',
     title: 'TESTS & SEO',
-    description: 'Optimisation et référencement'
+    description: 'Optimisation et référencement pour la visibilité',
+    duration: '1-2 jours',
+    features: ['Tests complets', 'SEO technique', 'Performance']
   },
   {
     icon: '🎓',
     title: 'FORMATION',
-    description: 'Prise en main de votre interface'
+    description: 'Prise en main de votre interface pour l\'autonomie totale',
+    duration: '2h',
+    features: ['Formation personnalisée', 'Documentation', 'Support inclus']
   }
 ];
 
