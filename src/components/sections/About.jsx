@@ -120,7 +120,7 @@ const About = () => {
             opacity: inView ? 1 : 0, 
             y: inView ? 0 : 30 
           }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           <h2 className="font-orbitron font-bold text-4xl md:text-6xl text-gradient mb-6">
             POURQUOI ME CHOISIR ?
@@ -129,7 +129,7 @@ const About = () => {
             className="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto"
             initial={{ width: 0 }}
             animate={{ width: inView ? 96 : 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           />
         </motion.div>
 

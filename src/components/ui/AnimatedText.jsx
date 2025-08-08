@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const AnimatedText = ({ 
   text, 
   className = '', 
-  speed = 60, 
+  speed = 40, 
   delay = 0, 
   showCursor = true,
   cursorColor = 'bg-gradient-to-r from-red-500 to-orange-500'
@@ -44,9 +44,9 @@ const AnimatedText = ({
           className={`inline-block w-2 h-10 ml-1 ${cursorColor}`}
           animate={{ opacity: showCursorBlink ? [1, 0, 1] : 1 }}
           transition={{ 
-            duration: 0.5, 
+            duration: 0.3, 
             repeat: isTyping ? 0 : Infinity,
-            ease: 'easeInOut'
+            ease: 'linear'
           }}
         />
       )}

@@ -198,7 +198,7 @@ const Portfolio = () => {
             opacity: inView ? 1 : 0, 
             y: inView ? 0 : 30 
           }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           <h2 className="font-orbitron font-bold text-3xl sm:text-4xl md:text-6xl text-gradient mb-4 md:mb-6">
             PORTFOLIO DIGITAL
@@ -210,7 +210,7 @@ const Portfolio = () => {
             className="w-16 md:w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto mt-4 md:mt-6"
             initial={{ width: 0 }}
             animate={{ width: inView ? (window.innerWidth < 768 ? 64 : 96) : 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           />
         </motion.div>
 
@@ -222,7 +222,7 @@ const Portfolio = () => {
             opacity: inView ? 1 : 0, 
             y: inView ? 0 : 20 
           }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
         >
           {filters.map((filter) => {
             const IconComponent = filter.icon;

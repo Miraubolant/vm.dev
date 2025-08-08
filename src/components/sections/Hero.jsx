@@ -32,15 +32,15 @@ const Hero = () => {
           {/* Main Title */}
           <motion.h1 
             className="font-orbitron font-black text-4xl md:text-6xl lg:text-7xl mb-8"
-            initial={{ opacity: 0, scale: 0.5 }}
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <AnimatedText 
               text="Besoin d'un site Web ?"
               className="text-gradient"
-              speed={50}
-              delay={300}
+              speed={35}
+              delay={200}
               showCursor={true}
               cursorColor="bg-gradient-to-r from-red-500 to-orange-500"
             />
@@ -51,13 +51,13 @@ const Hero = () => {
             className="mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2.5, duration: 0.6 }}
+            transition={{ delay: 1.8, duration: 0.4 }}
           >
             <h2 className="font-orbitron font-bold text-2xl md:text-4xl text-blue-300 mb-4">
               <AnimatedText 
                 text={HERO_CONTENT.subtitle}
-                speed={60}
-                delay={2800}
+                speed={45}
+                delay={2000}
                 showCursor={false}
                cursorColor="bg-white"
                className="text-white"
@@ -70,7 +70,7 @@ const Hero = () => {
             className="mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 4, duration: 0.6 }}
+            transition={{ delay: 3, duration: 0.4 }}
           >
             <p className="font-orbitron font-medium text-lg md:text-xl text-gradient mb-4 max-w-4xl mx-auto">
               {HERO_CONTENT.tagline}
@@ -82,7 +82,7 @@ const Hero = () => {
             className="mb-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 4.5, duration: 0.6 }}
+            transition={{ delay: 3.3, duration: 0.4 }}
           >
             <p className="font-inter text-lg text-gray-300 max-w-2xl mx-auto">
               {HERO_CONTENT.description}
@@ -94,7 +94,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 5, duration: 0.6 }}
+            transition={{ delay: 3.6, duration: 0.4 }}
           >
             <Button
               variant="primary"
