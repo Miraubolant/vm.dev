@@ -41,7 +41,7 @@ const AnimatedCounter = ({ target, unit, inView }) => {
 const PillarCard = ({ pillar, index, inView }) => {
   return (
     <motion.div
-      className="bg-glass rounded-lg p-8 text-center glow-hover cursor-pointer group"
+      className="bg-glass rounded-lg p-8 text-center glow-hover cursor-pointer group relative overflow-hidden"
       initial={{ opacity: 0, y: 50 }}
       animate={{ 
         opacity: inView ? 1 : 0, 
@@ -83,14 +83,7 @@ const PillarCard = ({ pillar, index, inView }) => {
       </p>
 
       {/* Animated Border */}
-      <motion.div
-        className="absolute inset-0 border-2 border-transparent rounded-lg"
-        whileHover={{
-          borderColor: 'var(--neon-red)',
-          boxShadow: '0 0 20px rgba(233, 69, 96, 0.3)'
-        }}
-        transition={{ duration: 0.3 }}
-      />
+      <div className="absolute inset-0 border-2 border-transparent rounded-lg group-hover:border-red-500 group-hover:shadow-glow-neon transition-all duration-300" />
     </motion.div>
   );
 };
