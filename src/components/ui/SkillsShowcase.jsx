@@ -25,18 +25,18 @@ const SkillsShowcase = () => {
         { name: 'Node.js', level: 90, color: '#339933' },
         { name: 'PHP', level: 85, color: '#777BB4' },
         { name: 'Python', level: 80, color: '#3776AB' },
-        { name: 'Laravel', level: 88, color: '#FF2D20' },
-        { name: 'Express.js', level: 87, color: '#000000' }
+        { name: 'FastAPI', level: 85, color: '#009688' },
+        { name: 'Symfony', level: 82, color: '#000000' }
       ]
     },
     {
-      category: 'Database & Tools',
+      category: 'Database & Hosting',
       technologies: [
-        { name: 'MongoDB', level: 85, color: '#47A248' },
-        { name: 'PostgreSQL', level: 82, color: '#336791' },
-        { name: 'Redis', level: 78, color: '#DC382D' },
+        { name: 'MySQL', level: 90, color: '#4479A1' },
+        { name: 'Supabase', level: 88, color: '#3ECF8E' },
+        { name: 'Coolify', level: 85, color: '#6366F1' },
         { name: 'Docker', level: 80, color: '#2496ED' },
-        { name: 'AWS', level: 75, color: '#FF9900' }
+        { name: 'Netlify', level: 82, color: '#00C7B7' }
       ]
     }
   ];
