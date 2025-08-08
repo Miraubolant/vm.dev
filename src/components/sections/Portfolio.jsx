@@ -192,7 +192,7 @@ const Portfolio = () => {
       <div className="relative z-10 max-w-7xl mx-auto" ref={ref}>
         {/* Section Title */}
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12 px-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ 
             opacity: inView ? 1 : 0, 
@@ -200,23 +200,23 @@ const Portfolio = () => {
           }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-orbitron font-bold text-4xl md:text-6xl text-gradient mb-6">
+          <h2 className="font-orbitron font-bold text-3xl sm:text-4xl md:text-6xl text-gradient mb-4 md:mb-6">
             PORTFOLIO DIGITAL
           </h2>
-          <p className="font-inter text-lg text-gray-300 max-w-3xl mx-auto">
+          <p className="font-inter text-base md:text-lg text-gray-300 max-w-3xl mx-auto px-2">
             Découvrez mes créations : sites vitrines, e-commerce, applications web sur-mesure
           </p>
           <motion.div
-            className="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto mt-6"
+            className="w-16 md:w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto mt-4 md:mt-6"
             initial={{ width: 0 }}
-            animate={{ width: inView ? 96 : 0 }}
+            animate={{ width: inView ? (window.innerWidth < 768 ? 64 : 96) : 0 }}
             transition={{ duration: 1, delay: 0.5 }}
           />
         </motion.div>
 
         {/* Filter Buttons */}
         <motion.div
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-12 px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ 
             opacity: inView ? 1 : 0, 
@@ -229,7 +229,7 @@ const Portfolio = () => {
             return (
               <motion.button
                 key={filter.key}
-                className={`flex items-center px-4 py-2 rounded-lg font-orbitron font-medium transition-all cursor-pointer ${
+                className={`flex items-center px-3 md:px-4 py-2 rounded-lg font-orbitron font-medium transition-all cursor-pointer text-sm md:text-base ${
                   activeFilter === filter.key
                     ? 'bg-neon-red text-white shadow-glow-neon'
                     : 'bg-glass text-gray-300 hover:text-white hover:bg-electric-blue/20 border-neon'
@@ -238,8 +238,9 @@ const Portfolio = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <IconComponent className="w-4 h-4 mr-2" />
-                {filter.label}
+                <IconComponent className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
+                <span className="hidden sm:inline">{filter.label}</span>
+                <span className="sm:hidden">{filter.key === 'all' ? 'Tous' : filter.key === 'restaurant' ? 'Resto' : filter.key === 'ecommerce' ? 'Shop' : filter.key === 'corporate' ? 'Corp' : 'Service'}</span>
               </motion.button>
             );
           })}
