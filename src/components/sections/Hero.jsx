@@ -58,7 +58,7 @@ const Hero = () => {
                 text={HERO_CONTENT.subtitle}
                 speed={60}
                 delay={2800}
-                showCursor={true}
+                showCursor={false}
                cursorColor="bg-white"
                className="text-white"
               />
