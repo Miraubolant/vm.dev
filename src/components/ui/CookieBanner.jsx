@@ -102,23 +102,13 @@ const CookieBanner = () => {
   return (
     <AnimatePresence>
       {showBanner && (
-        <>
-          {/* Overlay */}
-          <motion.div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          />
-
-          {/* Cookie Banner */}
-          <motion.div
-            className="fixed bottom-0 left-0 right-0 z-50 bg-glass border-t border-electric-blue p-6"
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 100, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
+        <motion.div
+          className="fixed bottom-0 left-0 right-0 z-50 bg-glass border-t border-electric-blue p-6"
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 100, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
             <div className="max-w-7xl mx-auto">
               {!showSettings ? (
                 // Main Banner
@@ -247,7 +237,6 @@ const CookieBanner = () => {
               )}
             </div>
           </motion.div>
-        </>
       )}
     </AnimatePresence>
   );
