@@ -133,7 +133,7 @@ const InteractiveDemo = () => {
                   type="text"
                   value={demoState.title}
                   onChange={(e) => setDemoState({ ...demoState, title: e.target.value })}
-                  className="w-full px-3 py-2 bg-primary-dark border border-electric-blue rounded text-white focus:border-neon-red transition-colors cursor-text"
+                  className="w-full px-3 py-2 bg-gray-800 border border-electric-blue rounded text-white placeholder-gray-400 focus:border-neon-red focus:bg-gray-700 transition-colors cursor-text"
                   onFocus={() => setActiveControl('title')}
                   onBlur={() => setActiveControl(null)}
                 />
@@ -148,7 +148,7 @@ const InteractiveDemo = () => {
                   type="text"
                   value={demoState.subtitle}
                   onChange={(e) => setDemoState({ ...demoState, subtitle: e.target.value })}
-                  className="w-full px-3 py-2 bg-primary-dark border border-electric-blue rounded text-white focus:border-neon-red transition-colors cursor-text"
+                  className="w-full px-3 py-2 bg-gray-800 border border-electric-blue rounded text-white placeholder-gray-400 focus:border-neon-red focus:bg-gray-700 transition-colors cursor-text"
                   onFocus={() => setActiveControl('subtitle')}
                   onBlur={() => setActiveControl(null)}
                 />
