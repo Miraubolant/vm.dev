@@ -109,9 +109,13 @@ const About = () => {
       
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(15, 52, 96, 0.3) 0%, transparent 50%)',
-        }} />
+        <div 
+          className="absolute inset-0" 
+          style={{
+            backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(15, 52, 96, 0.3) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(83, 52, 131, 0.2) 0%, transparent 40%)',
+            backgroundSize: '100% 100%, 80% 80%'
+          }} 
+        />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto" ref={ref}>
