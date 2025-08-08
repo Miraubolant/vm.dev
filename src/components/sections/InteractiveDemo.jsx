@@ -558,7 +558,7 @@ const DesktopPreview = ({ demoState, activeControl }) => {
                     ))}
                     <span className="text-gray-500 text-sm ml-2">(4.8)</span>
                   </div>
-                </div>
+                </motion.div>
               ))}
               </div>
             </div>
@@ -670,16 +670,6 @@ const MobilePreview = ({ demoState, activeControl }) => {
           <h2 className="text-xl font-bold mb-4 text-gray-800">Nos Spécialités</h2>
           <div className="space-y-3">
             {demoState.products.map((product, index) => (
-              <div key={index} className="border-2 rounded-xl p-4 flex justify-between items-center hover:shadow-lg transition-shadow">
-                <h3 className="font-bold text-gray-800">{product.name}</h3>
-                  className="text-base mb-4 drop-shadow-md opacity-90"
-          <div className="text-center mb-6">
-            <h2 className="text-xl font-bold mb-2 text-gray-800">Nos Spécialités</h2>
-            <div className="w-12 h-1 mx-auto rounded-full" style={{ backgroundColor: demoState.primaryColor }}></div>
-          </div>
-          
-                  style={{ color: demoState.primaryColor }}
-                >
               <motion.div 
                 key={index} 
                 className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all border border-gray-100 flex items-center space-x-4"
@@ -714,6 +704,7 @@ const MobilePreview = ({ demoState, activeControl }) => {
                   </div>
                 </div>
               </div>
+            ))}
             ))}
           </div>
         </div>
