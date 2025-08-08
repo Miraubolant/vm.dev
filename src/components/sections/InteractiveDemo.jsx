@@ -235,44 +235,87 @@ const InteractiveDemo = () => {
                         : 'text-gray-400 hover:text-white hover:bg-electric-blue/20'
                     }`}
                   >
-                    <Monitor className="w-4 h-4" />
-                    <span className="font-orbitron font-medium">Desktop</span>
+          <div className="flex justify-center mb-8">
+            <div className="bg-glass rounded-xl p-1 border-neon flex space-x-1 shadow-lg">
                   </button>
                   <button
-                    onClick={() => setViewMode('mobile')}
+                className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-all cursor-pointer font-orbitron font-medium ${
                     className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all cursor-pointer ${
-                      viewMode === 'mobile'
-                        ? 'bg-neon-red text-white'
+                    ? 'bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-lg scale-105'
+                    : 'text-gray-400 hover:text-white hover:bg-electric-blue/30 hover:scale-102'
                         : 'text-gray-400 hover:text-white hover:bg-electric-blue/20'
                     }`}
-                  >
-                    <Smartphone className="w-4 h-4" />
+                <Monitor className="w-5 h-5" />
+                <span>Desktop</span>
                     <span className="font-orbitron font-medium">Mobile</span>
                   </button>
                 </div>
-              </div>
+                className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-all cursor-pointer font-orbitron font-medium ${
 
-              {/* Preview Container */}
-              <div className={`bg-glass rounded-lg overflow-hidden border-neon ${
+                    ? 'bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-lg scale-105'
+                    : 'text-gray-400 hover:text-white hover:bg-electric-blue/30 hover:scale-102'
                 viewMode === 'mobile' ? 'max-w-sm mx-auto' : ''
               }`}>
-                {viewMode === 'mobile' && (
-                  /* Mobile Frame */
+                <Smartphone className="w-5 h-5" />
+                <span>Mobile</span>
                   <div className="bg-gray-900 rounded-t-3xl p-2">
                     <div className="bg-black rounded-2xl overflow-hidden relative">
                       {/* Mobile Notch */}
                       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-black rounded-b-2xl z-10 flex items-center justify-center">
                         <div className="w-12 h-1 bg-gray-600 rounded-full"></div>
-                      </div>
-                      
+          <div className={`relative ${
+            viewMode === 'mobile' ? 'max-w-sm mx-auto' : 'max-w-6xl mx-auto'
                       {/* Mobile Content */}
-                      <div className="pt-8">
-                        <MobilePreview demoState={demoState} activeControl={activeControl} />
+            <AnimatePresence mode="wait">
+              {viewMode === 'mobile' ? (
+                /* Mobile Frame */
+                <motion.div
+                  key="mobile-frame"
+                  className="relative"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  {/* Phone Shadow */}
+                  <div className="absolute inset-0 bg-black/20 rounded-[3rem] blur-xl transform translate-y-4 scale-105"></div>
+                  
+                  {/* Phone Frame */}
+                  <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl">
+                    {/* Screen Bezel */}
+                    <div className="bg-black rounded-[2.5rem] p-1">
+                      {/* Screen */}
+                      <div className="bg-white rounded-[2.2rem] overflow-hidden relative">
+                        {/* Status Bar */}
+                        <div className="absolute top-0 left-0 right-0 h-8 bg-black z-20 flex items-center justify-between px-6">
+                          <div className="flex items-center space-x-1">
+                            <div className="text-white text-xs font-medium">9:41</div>
+                          </div>
+                          <div className="flex items-center space-x-1">
+                            <div className="w-4 h-2 border border-white rounded-sm">
+                              <div className="w-3 h-1 bg-white rounded-sm m-0.5"></div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Dynamic Island */}
+                        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-black rounded-full z-30"></div>
+                        
+                        {/* Content */}
+                        <div className="pt-10">
+                          <MobilePreview demoState={demoState} activeControl={activeControl} />
+                        </div>
+                        
+                        {/* Home Indicator */}
+                        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-black rounded-full opacity-60"></div>
                       </div>
-                      
-                      {/* Mobile Home Indicator */}
-                      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gray-600 rounded-full"></div>
                     </div>
+                    
+                    {/* Side Buttons */}
+                    <div className="absolute left-0 top-20 w-1 h-8 bg-gray-700 rounded-r-full"></div>
+                    <div className="absolute left-0 top-32 w-1 h-12 bg-gray-700 rounded-r-full"></div>
+                    <div className="absolute left-0 top-48 w-1 h-12 bg-gray-700 rounded-r-full"></div>
+                    <div className="absolute right-0 top-32 w-1 h-16 bg-gray-700 rounded-l-full"></div>
                   </div>
                 )}
                 
@@ -341,20 +384,24 @@ const InteractiveDemo = () => {
 // Composant Desktop Preview
 const DesktopPreview = ({ demoState, activeControl }) => {
   return (
-    <>
+    <div className="min-h-[500px]">
       {/* Browser Header */}
-      <div className="bg-primary-dark px-4 py-3 border-b border-electric-blue flex items-center space-x-2">
+      <div className="bg-gradient-to-r from-primary-dark to-secondary-dark px-6 py-4 border-b border-electric-blue/50 flex items-center space-x-3">
         <div className="flex space-x-2">
-          <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-          <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+          <div className="w-3 h-3 bg-red-500 rounded-full shadow-lg hover:bg-red-400 transition-colors cursor-pointer"></div>
+          <div className="w-3 h-3 bg-yellow-500 rounded-full shadow-lg hover:bg-yellow-400 transition-colors cursor-pointer"></div>
+          <div className="w-3 h-3 bg-green-500 rounded-full shadow-lg hover:bg-green-400 transition-colors cursor-pointer"></div>
         </div>
-        <div className="flex-1 bg-secondary-dark rounded px-3 py-1 text-sm text-gray-400 font-mono">
+        <div className="flex-1 bg-glass rounded-lg px-4 py-2 text-sm text-gray-300 font-mono border border-electric-blue/30">
           https://boulangerie-moderne.fr
         </div>
-        <div className="flex space-x-2">
-          <Monitor className="w-4 h-4 text-blue-400" />
-          <Smartphone className="w-4 h-4 text-gray-400" />
+        <div className="flex space-x-3">
+          <div className="w-6 h-6 bg-electric-blue/20 rounded flex items-center justify-center">
+            <Monitor className="w-4 h-4 text-blue-400" />
+          </div>
+          <div className="w-6 h-6 bg-gray-600/20 rounded flex items-center justify-center">
+            <Smartphone className="w-4 h-4 text-gray-400" />
+          </div>
         </div>
       </div>
 
@@ -369,7 +416,7 @@ const DesktopPreview = ({ demoState, activeControl }) => {
           transition={{ duration: 0.3 }}
         >
           {/* Hero Section */}
-          <div className="relative h-64 overflow-hidden">
+          <div className="relative h-80 overflow-hidden">
             <img
               src={demoState.heroImage}
               alt="Hero"
@@ -378,7 +425,7 @@ const DesktopPreview = ({ demoState, activeControl }) => {
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
               <div className="text-center text-white">
                 <motion.h1
-                  className="text-3xl md:text-4xl font-bold mb-2"
+                  className="text-4xl md:text-5xl font-bold mb-4"
                   style={{ color: demoState.primaryColor }}
                   animate={activeControl === 'title' ? { scale: [1, 1.05, 1] } : {}}
                   transition={{ duration: 0.3 }}
@@ -386,7 +433,7 @@ const DesktopPreview = ({ demoState, activeControl }) => {
                   {demoState.title}
                 </motion.h1>
                 <motion.p
-                  className="text-lg"
+                  className="text-xl"
                   animate={activeControl === 'subtitle' ? { scale: [1, 1.05, 1] } : {}}
                   transition={{ duration: 0.3 }}
                 >
@@ -398,24 +445,43 @@ const DesktopPreview = ({ demoState, activeControl }) => {
 
           {/* Products Section */}
           <div className="p-6 bg-white">
-            <h2 className="text-2xl font-bold mb-4 text-gray-800">Nos Spécialités</h2>
+            <h2 className="text-3xl font-bold mb-6 text-gray-800">Nos Spécialités</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {demoState.products.map((product, index) => (
-                <div key={index} className="border rounded-lg p-4 hover:shadow-lg transition-shadow">
-                  <h3 className="font-semibold text-gray-800">{product.name}</h3>
-                  <p 
-                    className="text-xl font-bold mt-2"
+                <div key={index} className="border-2 rounded-xl p-6 hover:shadow-xl transition-all hover:scale-105">
+                  <h3 className="font-bold text-gray-800 text-lg">{product.name}</h3>
+                /* Desktop Frame */
+                <motion.div
+                  key="desktop-frame"
+                  className="relative"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  {/* Monitor Shadow */}
+                  <div className="absolute inset-0 bg-black/20 rounded-2xl blur-2xl transform translate-y-6 scale-105"></div>
+                  
+                  {/* Monitor Frame */}
+                  <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl p-4 shadow-2xl">
+                    {/* Screen Bezel */}
+                    <div className="bg-black rounded-xl p-2">
+                      {/* Screen */}
+                      <div className="bg-glass rounded-lg overflow-hidden border border-electric-blue/30 shadow-inner">
+                        <DesktopPreview demoState={demoState} activeControl={activeControl} />
+                      </div>
+                    </div>
+                    
+                    {/* Monitor Stand */}
+                    <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-4 bg-gradient-to-b from-gray-700 to-gray-800 rounded-b-lg"></div>
+                    <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-48 h-2 bg-gradient-to-b from-gray-800 to-gray-900 rounded-full"></div>
                     style={{ color: demoState.primaryColor }}
-                  >
-                    {product.price.toFixed(2)}€
-                  </p>
-                </div>
               ))}
             </div>
           </div>
 
           {/* CTA Section */}
-          <div className="p-6 text-center" style={{ backgroundColor: `${demoState.primaryColor}15` }}>
+          <div className="p-8 text-center" style={{ backgroundColor: `${demoState.primaryColor}15` }}>
             <button
               className="px-6 py-3 rounded-lg text-white font-semibold hover:opacity-90 transition-opacity"
               style={{ backgroundColor: demoState.primaryColor }}
@@ -425,7 +491,7 @@ const DesktopPreview = ({ demoState, activeControl }) => {
           </div>
         </motion.div>
       </AnimatePresence>
-    </>
+    </div>
   );
 };
 
@@ -442,7 +508,7 @@ const MobilePreview = ({ demoState, activeControl }) => {
         transition={{ duration: 0.3 }}
       >
         {/* Mobile Hero Section */}
-        <div className="relative h-48 overflow-hidden">
+        <div className="relative h-56 overflow-hidden">
           <img
             src={demoState.heroImage}
             alt="Hero"
@@ -451,7 +517,7 @@ const MobilePreview = ({ demoState, activeControl }) => {
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="text-center text-white px-4">
               <motion.h1
-                className="text-xl font-bold mb-2"
+                className="text-2xl font-bold mb-3"
                 style={{ color: demoState.primaryColor }}
                 animate={activeControl === 'title' ? { scale: [1, 1.05, 1] } : {}}
                 transition={{ duration: 0.3 }}
@@ -459,7 +525,7 @@ const MobilePreview = ({ demoState, activeControl }) => {
                 {demoState.title}
               </motion.h1>
               <motion.p
-                className="text-sm"
+                className="text-base"
                 animate={activeControl === 'subtitle' ? { scale: [1, 1.05, 1] } : {}}
                 transition={{ duration: 0.3 }}
               >
@@ -471,26 +537,23 @@ const MobilePreview = ({ demoState, activeControl }) => {
 
         {/* Mobile Products Section */}
         <div className="p-4">
-          <h2 className="text-lg font-bold mb-3 text-gray-800">Nos Spécialités</h2>
+          <h2 className="text-xl font-bold mb-4 text-gray-800">Nos Spécialités</h2>
           <div className="space-y-3">
             {demoState.products.map((product, index) => (
-              <div key={index} className="border rounded-lg p-3 flex justify-between items-center">
-                <h3 className="font-semibold text-gray-800 text-sm">{product.name}</h3>
+              <div key={index} className="border-2 rounded-xl p-4 flex justify-between items-center hover:shadow-lg transition-shadow">
+                <h3 className="font-bold text-gray-800">{product.name}</h3>
                 <p 
-                  className="text-lg font-bold"
+                  className="text-xl font-bold"
                   style={{ color: demoState.primaryColor }}
                 >
                   {product.price.toFixed(2)}€
                 </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile CTA Section */}
-        <div className="p-4 text-center" style={{ backgroundColor: `${demoState.primaryColor}15` }}>
+                </motion.div>
+              )}
+            </AnimatePresence>
+        <div className="p-6 text-center" style={{ backgroundColor: `${demoState.primaryColor}15` }}>
           <button
-            className="w-full py-3 rounded-lg text-white font-semibold hover:opacity-90 transition-opacity text-sm"
+            className="w-full py-4 rounded-xl text-white font-bold hover:opacity-90 transition-all hover:scale-105 text-base"
             style={{ backgroundColor: demoState.primaryColor }}
           >
             Nous Contacter
