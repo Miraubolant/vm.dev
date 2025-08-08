@@ -12,31 +12,31 @@ const SkillsShowcase = () => {
     {
       category: 'Frontend',
       technologies: [
-        { name: 'React', level: 95, color: '#61DAFB' },
-        { name: 'Vue.js', level: 90, color: '#4FC08D' },
-        { name: 'TypeScript', level: 88, color: '#3178C6' },
-        { name: 'Next.js', level: 92, color: '#000000' },
-        { name: 'Tailwind CSS', level: 96, color: '#06B6D4' }
+        { name: 'React', level: 95, color: '#E94560' },
+        { name: 'Vue.js', level: 90, color: '#0F3460' },
+        { name: 'TypeScript', level: 88, color: '#533483' },
+        { name: 'Next.js', level: 92, color: '#F39C12' },
+        { name: 'Tailwind CSS', level: 96, color: '#E94560' }
       ]
     },
     {
       category: 'Backend',
       technologies: [
-        { name: 'Node.js', level: 90, color: '#339933' },
-        { name: 'PHP', level: 85, color: '#777BB4' },
-        { name: 'Python', level: 80, color: '#3776AB' },
-        { name: 'FastAPI', level: 85, color: '#009688' },
-        { name: 'Symfony', level: 82, color: '#000000' }
+        { name: 'Node.js', level: 90, color: '#0F3460' },
+        { name: 'PHP', level: 85, color: '#533483' },
+        { name: 'Python', level: 80, color: '#F39C12' },
+        { name: 'FastAPI', level: 85, color: '#E94560' },
+        { name: 'Symfony', level: 82, color: '#0F3460' }
       ]
     },
     {
       category: 'Database & Hosting',
       technologies: [
-        { name: 'MySQL', level: 90, color: '#4479A1' },
-        { name: 'Supabase', level: 88, color: '#3ECF8E' },
-        { name: 'Coolify', level: 85, color: '#6366F1' },
-        { name: 'Docker', level: 80, color: '#2496ED' },
-        { name: 'Netlify', level: 82, color: '#00C7B7' }
+        { name: 'MySQL', level: 90, color: '#533483' },
+        { name: 'Supabase', level: 88, color: '#E94560' },
+        { name: 'Coolify', level: 85, color: '#F39C12' },
+        { name: 'Docker', level: 80, color: '#0F3460' },
+        { name: 'Netlify', level: 82, color: '#533483' }
       ]
     }
   ];
