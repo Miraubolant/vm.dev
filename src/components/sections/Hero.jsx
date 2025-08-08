@@ -37,7 +37,7 @@ const Hero = () => {
             transition={{ duration: 1, ease: 'easeOut' }}
           >
             <AnimatedText 
-              text="Sites web express"
+              text="Sites clé en main"
               className="text-gradient"
               speed={80}
               delay={500}
