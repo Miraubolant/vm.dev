@@ -123,7 +123,7 @@ const About = () => {
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           <h2 className="font-orbitron font-bold text-4xl md:text-6xl text-gradient mb-6">
-            POURQUOI ME CHOISIR ?
+            STACK TECHNIQUE
           </h2>
           <motion.div
             className="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto"

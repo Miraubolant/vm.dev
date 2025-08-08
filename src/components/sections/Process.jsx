@@ -151,10 +151,10 @@ const Process = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-orbitron font-bold text-4xl md:text-6xl text-gradient mb-6">
-            PROCESSUS DIGITAL
+            POURQUOI ME CHOISIR ?
           </h2>
           <p className="font-inter text-lg text-gray-300 max-w-3xl mx-auto">
-            De l'idée à l'autonomie totale : découvrez ma méthode éprouvée en 6 étapes
+            Chaque projet est unique, mais ma méthode reste la même : comprendre vos besoins, créer une solution sur-mesure, et vous former pour l'autonomie totale
           </p>
           <motion.div
             className="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto mt-6"
