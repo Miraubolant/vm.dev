@@ -58,6 +58,16 @@ const Header = () => {
     }, isOpen ? 300 : 0);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    
+    // Tracker l'événement
+    trackButtonClick && trackButtonClick('logo_home', 'header');
+  };
+
   // Fermer le menu si on clique en dehors
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -89,15 +99,17 @@ const Header = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <motion.div
+          <motion.button
             className="flex items-center space-x-2"
+            onClick={scrollToTop}
             whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             <Code2 className="w-8 h-8 text-red-500" />
             <span className="font-orbitron font-bold text-xl text-gradient">
               VM.DEV
             </span>
-          </motion.div>
+          </motion.button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
