@@ -123,7 +123,7 @@ const About = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-orbitron font-bold text-4xl md:text-6xl text-gradient mb-6">
-            POURQUOI CHOISIR VICTOR ?
+            POURQUOI ME CHOISIR ?
           </h2>
           <motion.div
             className="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto"
