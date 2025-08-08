@@ -399,23 +399,50 @@ const InteractiveDemo = () => {
 // Composant Desktop Preview
 const DesktopPreview = ({ demoState, activeControl }) => {
   return (
-    <div className="min-h-[500px]">
+    <div className="min-h-[600px] bg-gray-50">
       {/* Browser Header */}
-      <div className="bg-gradient-to-r from-primary-dark to-secondary-dark px-6 py-4 border-b border-electric-blue/50 flex items-center space-x-3">
+      <div className="bg-gradient-to-r from-gray-800 to-gray-900 px-6 py-3 border-b border-gray-700 flex items-center space-x-3 shadow-lg">
         <div className="flex space-x-2">
-          <div className="w-3 h-3 bg-red-500 rounded-full shadow-lg hover:bg-red-400 transition-colors cursor-pointer"></div>
-          <div className="w-3 h-3 bg-yellow-500 rounded-full shadow-lg hover:bg-yellow-400 transition-colors cursor-pointer"></div>
-          <div className="w-3 h-3 bg-green-500 rounded-full shadow-lg hover:bg-green-400 transition-colors cursor-pointer"></div>
+          <div className="w-3 h-3 bg-red-500 rounded-full shadow-md hover:bg-red-400 transition-all cursor-pointer hover:scale-110"></div>
+          <div className="w-3 h-3 bg-yellow-500 rounded-full shadow-md hover:bg-yellow-400 transition-all cursor-pointer hover:scale-110"></div>
+          <div className="w-3 h-3 bg-green-500 rounded-full shadow-md hover:bg-green-400 transition-all cursor-pointer hover:scale-110"></div>
         </div>
-        <div className="flex-1 bg-glass rounded-lg px-4 py-2 text-sm text-gray-300 font-mono border border-electric-blue/30">
-          https://boulangerie-moderne.fr
-        </div>
-        <div className="flex space-x-3">
-          <div className="w-6 h-6 bg-electric-blue/20 rounded flex items-center justify-center">
-            <Monitor className="w-4 h-4 text-blue-400" />
+        <div className="flex items-center space-x-2 flex-1">
+          <div className="flex space-x-1">
+            <div className="w-4 h-4 bg-gray-600 rounded hover:bg-gray-500 transition-colors cursor-pointer flex items-center justify-center">
+              <svg className="w-2 h-2 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0L2.586 11l3.707-3.707a1 1 0 011.414 1.414L5.414 11l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <div className="w-4 h-4 bg-gray-600 rounded hover:bg-gray-500 transition-colors cursor-pointer flex items-center justify-center">
+              <svg className="w-2 h-2 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4.414 4.414-4.414 4.414a1 1 0 01-1.414-1.414L14.586 11l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <div className="w-4 h-4 bg-gray-600 rounded hover:bg-gray-500 transition-colors cursor-pointer flex items-center justify-center">
+              <svg className="w-2 h-2 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clipRule="evenodd" />
+              </svg>
+            </div>
           </div>
-          <div className="w-6 h-6 bg-gray-600/20 rounded flex items-center justify-center">
-            <Smartphone className="w-4 h-4 text-gray-400" />
+          <div className="flex-1 bg-gray-700 rounded-lg px-4 py-2 text-sm text-gray-300 font-mono border border-gray-600 flex items-center">
+            <svg className="w-3 h-3 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+            </svg>
+            https://boulangerie-moderne.fr
+          </div>
+        </div>
+        <div className="flex space-x-2">
+          <div className="w-6 h-6 bg-blue-500/20 rounded hover:bg-blue-500/30 transition-colors cursor-pointer flex items-center justify-center">
+            <Monitor className="w-3 h-3 text-blue-400" />
+          </div>
+          <div className="w-6 h-6 bg-gray-600/20 rounded hover:bg-gray-600/30 transition-colors cursor-pointer flex items-center justify-center">
+            <Smartphone className="w-3 h-3 text-gray-400" />
+          </div>
+          <div className="w-6 h-6 bg-gray-600/20 rounded hover:bg-gray-600/30 transition-colors cursor-pointer flex items-center justify-center">
+            <svg className="w-3 h-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
+            </svg>
           </div>
         </div>
       </div>
@@ -431,16 +458,26 @@ const DesktopPreview = ({ demoState, activeControl }) => {
           transition={{ duration: 0.3 }}
         >
           {/* Hero Section */}
-          <div className="relative h-80 overflow-hidden">
+          <div className="relative h-80 overflow-hidden group">
             <img
               src={demoState.heroImage}
               alt="Hero"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-              <div className="text-center text-white">
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70 flex items-center justify-center">
+              {/* Navigation overlay */}
+              <div className="absolute top-4 left-0 right-0 flex justify-between items-center px-8">
+                <div className="text-white font-bold text-lg opacity-90">🍞 Boulangerie</div>
+                <div className="flex space-x-6 text-white/80 text-sm">
+                  <span className="hover:text-white cursor-pointer transition-colors">Accueil</span>
+                  <span className="hover:text-white cursor-pointer transition-colors">Produits</span>
+                  <span className="hover:text-white cursor-pointer transition-colors">Contact</span>
+                </div>
+              </div>
+              
+              <div className="text-center text-white z-10">
                 <motion.h1
-                  className="text-4xl md:text-5xl font-bold mb-4"
+                  className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg"
                   style={{ color: demoState.primaryColor }}
                   animate={activeControl === 'title' ? { scale: [1, 1.05, 1] } : {}}
                   transition={{ duration: 0.3 }}
@@ -448,42 +485,128 @@ const DesktopPreview = ({ demoState, activeControl }) => {
                   {demoState.title}
                 </motion.h1>
                 <motion.p
-                  className="text-xl"
+                  className="text-xl mb-6 drop-shadow-md opacity-90"
                   animate={activeControl === 'subtitle' ? { scale: [1, 1.05, 1] } : {}}
                   transition={{ duration: 0.3 }}
                 >
                   {demoState.subtitle}
                 </motion.p>
+                <div className="flex justify-center space-x-4">
+                  <button 
+                    className="px-6 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg text-white hover:bg-white/30 transition-all"
+                    style={{ borderColor: demoState.primaryColor }}
+                  >
+                    Découvrir
+                  </button>
+                  <button 
+                    className="px-6 py-3 rounded-lg text-white font-semibold hover:opacity-90 transition-all shadow-lg"
+                    style={{ backgroundColor: demoState.primaryColor }}
+                  >
+                    Commander
+                  </button>
+                </div>
+              </div>
+              
+              {/* Decorative elements */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white/60">
+                <svg className="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
               </div>
             </div>
           </div>
 
           {/* Products Section */}
-          <div className="p-6 bg-white">
-            <h2 className="text-3xl font-bold mb-6 text-gray-800">Nos Spécialités</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="p-8 bg-gradient-to-b from-white to-gray-50">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold mb-3 text-gray-800">Nos Spécialités</h2>
+                <div className="w-20 h-1 mx-auto rounded-full" style={{ backgroundColor: demoState.primaryColor }}></div>
+                <p className="text-gray-600 mt-4">Découvrez nos produits artisanaux faits avec passion</p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {demoState.products.map((product, index) => (
-                <div key={index} className="border-2 rounded-xl p-6 hover:shadow-xl transition-all hover:scale-105">
-                  <h3 className="font-bold text-gray-800 text-lg">{product.name}</h3>
-                  <p 
-                    className="text-2xl font-bold mt-2"
-                    style={{ color: demoState.primaryColor }}
-                  >
-                    {product.price.toFixed(2)}€
-                  </p>
+                <motion.div 
+                  key={index} 
+                  className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:scale-105 border border-gray-100 group"
+                  whileHover={{ y: -5 }}
+                >
+                  <div className="w-full h-32 bg-gradient-to-br from-orange-100 to-yellow-100 rounded-lg mb-4 flex items-center justify-center text-4xl">
+                    {index === 0 ? '🍞' : index === 1 ? '🥐' : '🍰'}
+                  </div>
+                  <h3 className="font-bold text-gray-800 text-lg mb-2 group-hover:text-gray-900 transition-colors">{product.name}</h3>
+                  <div className="flex justify-between items-center">
+                    <p 
+                      className="text-2xl font-bold"
+                      style={{ color: demoState.primaryColor }}
+                    >
+                      {product.price.toFixed(2)}€
+                    </p>
+                    <button 
+                      className="px-4 py-2 rounded-lg text-white text-sm font-medium hover:opacity-90 transition-all"
+                      style={{ backgroundColor: demoState.primaryColor }}
+                    >
+                      Ajouter
+                    </button>
+                  </div>
+                  <div className="mt-3 flex items-center text-yellow-400">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                    <span className="text-gray-500 text-sm ml-2">(4.8)</span>
+                  </div>
                 </div>
               ))}
+              </div>
             </div>
           </div>
 
           {/* CTA Section */}
-          <div className="p-8 text-center" style={{ backgroundColor: `${demoState.primaryColor}15` }}>
-            <button
-              className="px-6 py-3 rounded-lg text-white font-semibold hover:opacity-90 transition-opacity"
-              style={{ backgroundColor: demoState.primaryColor }}
-            >
-              Nous Contacter
-            </button>
+          <div className="p-12 text-center relative overflow-hidden" style={{ backgroundColor: `${demoState.primaryColor}15` }}>
+            <div className="relative z-10">
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Prêt à commander ?</h3>
+              <p className="text-gray-600 mb-6 max-w-md mx-auto">Contactez-nous pour passer commande ou pour plus d'informations</p>
+              <div className="flex justify-center space-x-4">
+                <button
+                  className="px-8 py-4 rounded-lg text-white font-semibold hover:opacity-90 transition-all shadow-lg hover:shadow-xl"
+                  style={{ backgroundColor: demoState.primaryColor }}
+                >
+                  📞 Nous Contacter
+                </button>
+                <button className="px-8 py-4 border-2 rounded-lg font-semibold hover:bg-gray-50 transition-all" style={{ borderColor: demoState.primaryColor, color: demoState.primaryColor }}>
+                  📍 Nous Trouver
+                </button>
+              </div>
+            </div>
+            
+            {/* Background decoration */}
+            <div className="absolute top-0 right-0 w-32 h-32 opacity-10" style={{ backgroundColor: demoState.primaryColor }}>
+              <div className="w-full h-full rounded-full transform translate-x-16 -translate-y-16"></div>
+            </div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 opacity-10" style={{ backgroundColor: demoState.primaryColor }}>
+              <div className="w-full h-full rounded-full transform -translate-x-12 translate-y-12"></div>
+            </div>
+          </div>
+          
+          {/* Footer */}
+          <div className="bg-gray-800 text-white p-6">
+            <div className="max-w-6xl mx-auto flex justify-between items-center">
+              <div className="flex items-center space-x-4">
+                <div className="text-2xl">🍞</div>
+                <div>
+                  <div className="font-bold">Boulangerie Moderne</div>
+                  <div className="text-gray-400 text-sm">Artisan depuis 1985</div>
+                </div>
+              </div>
+              <div className="flex space-x-6 text-sm text-gray-400">
+                <span>📍 123 Rue de la Paix</span>
+                <span>📞 01 23 45 67 89</span>
+                <span>✉️ contact@boulangerie.fr</span>
+              </div>
+            </div>
           </div>
         </motion.div>
       </AnimatePresence>
@@ -497,21 +620,32 @@ const MobilePreview = ({ demoState, activeControl }) => {
     <AnimatePresence mode="wait">
       <motion.div
         key={`mobile-${demoState.title}-${demoState.heroImage}-${demoState.primaryColor}`}
-        className="relative bg-white"
+        className="relative bg-white overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
       >
         {/* Mobile Hero Section */}
-        <div className="relative h-56 overflow-hidden">
+        <div className="relative h-64 overflow-hidden group">
           <img
             src={demoState.heroImage}
             alt="Hero"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="text-center text-white px-4">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70 flex flex-col">
+            {/* Mobile Navigation */}
+            <div className="flex justify-between items-center p-4 text-white">
+              <div className="font-bold text-lg">🍞</div>
+              <div className="w-6 h-6 flex flex-col justify-center cursor-pointer">
+                <div className="w-full h-0.5 bg-white mb-1"></div>
+                <div className="w-full h-0.5 bg-white mb-1"></div>
+                <div className="w-full h-0.5 bg-white"></div>
+              </div>
+            </div>
+            
+            <div className="flex-1 flex items-center justify-center">
+              <div className="text-center text-white px-4">
               <motion.h1
                 className="text-2xl font-bold mb-3"
                 style={{ color: demoState.primaryColor }}
@@ -538,25 +672,87 @@ const MobilePreview = ({ demoState, activeControl }) => {
             {demoState.products.map((product, index) => (
               <div key={index} className="border-2 rounded-xl p-4 flex justify-between items-center hover:shadow-lg transition-shadow">
                 <h3 className="font-bold text-gray-800">{product.name}</h3>
-                <p 
-                  className="text-xl font-bold"
+                  className="text-base mb-4 drop-shadow-md opacity-90"
+          <div className="text-center mb-6">
+            <h2 className="text-xl font-bold mb-2 text-gray-800">Nos Spécialités</h2>
+            <div className="w-12 h-1 mx-auto rounded-full" style={{ backgroundColor: demoState.primaryColor }}></div>
+          </div>
+          
                   style={{ color: demoState.primaryColor }}
                 >
-                  {product.price.toFixed(2)}€
-                </p>
+              <motion.div 
+                key={index} 
+                className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all border border-gray-100 flex items-center space-x-4"
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-100 to-yellow-100 rounded-lg flex items-center justify-center text-2xl flex-shrink-0">
+                  {index === 0 ? '🍞' : index === 1 ? '🥐' : '🍰'}
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-bold text-gray-800 mb-1">{product.name}</h3>
+                  <div className="flex items-center text-yellow-400 mb-2">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                    <span className="text-gray-500 text-xs ml-1">(4.8)</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <p 
+                      className="text-lg font-bold"
+                      style={{ color: demoState.primaryColor }}
+                    >
+                      {product.price.toFixed(2)}€
+                    </p>
+                    <button 
+                      className="px-3 py-1 rounded-lg text-white text-sm font-medium hover:opacity-90 transition-all"
+                      style={{ backgroundColor: demoState.primaryColor }}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Mobile CTA Section */}
-        <div className="p-6 text-center" style={{ backgroundColor: `${demoState.primaryColor}15` }}>
-          <button
-            className="w-full py-4 rounded-xl text-white font-bold hover:opacity-90 transition-all hover:scale-105 text-base"
-            style={{ backgroundColor: demoState.primaryColor }}
-          >
-            Nous Contacter
-          </button>
+        <div className="p-6 text-center relative overflow-hidden" style={{ backgroundColor: `${demoState.primaryColor}15` }}>
+          <div className="relative z-10">
+            <h3 className="text-lg font-bold text-gray-800 mb-2">Prêt à commander ?</h3>
+            <p className="text-gray-600 mb-4 text-sm">Contactez-nous dès maintenant</p>
+            <div className="space-y-3">
+              <button
+                className="w-full py-4 rounded-xl text-white font-bold hover:opacity-90 transition-all hover:scale-105 text-base shadow-lg"
+                style={{ backgroundColor: demoState.primaryColor }}
+              >
+                📞 Appeler Maintenant
+              </button>
+              <button className="w-full py-3 border-2 rounded-xl font-semibold hover:bg-gray-50 transition-all text-sm" style={{ borderColor: demoState.primaryColor, color: demoState.primaryColor }}>
+                📍 Voir l'Adresse
+              </button>
+            </div>
+          </div>
+          
+          {/* Background decoration */}
+          <div className="absolute top-0 right-0 w-20 h-20 opacity-10 rounded-full" style={{ backgroundColor: demoState.primaryColor }}>
+          </div>
+        </div>
+        
+        {/* Mobile Footer */}
+        <div className="bg-gray-800 text-white p-4">
+          <div className="text-center">
+            <div className="flex items-center justify-center space-x-2 mb-2">
+              <div className="text-xl">🍞</div>
+              <div className="font-bold">Boulangerie Moderne</div>
+            </div>
+            <div className="text-gray-400 text-xs space-y-1">
+              <div>📍 123 Rue de la Paix</div>
+              <div>📞 01 23 45 67 89</div>
+            </div>
+          </div>
         </div>
       </motion.div>
     </AnimatePresence>
