@@ -709,7 +709,7 @@ const MobilePreview = ({ demoState, activeControl }) => {
                       style={{ backgroundColor: demoState.primaryColor }}
                     >
                       👁️
-                    </button>
+                    https://premium-immobilier.fr
                   </div>
                 </div>
               </motion.div>
