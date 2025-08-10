@@ -603,16 +603,16 @@ const DesktopPreview = ({ demoState, activeControl }) => {
           <div className="bg-gray-800 text-white p-6">
             <div className="max-w-6xl mx-auto flex justify-between items-center">
               <div className="flex items-center space-x-4">
-                <div className="text-2xl">🏠</div>
+                <div className="text-2xl">🍞</div>
                 <div>
-                  <div className="font-bold">Agence Premium Immobilier</div>
-                  <div className="text-gray-400 text-sm">Votre partenaire de confiance</div>
+                  <div className="font-bold">Boulangerie Moderne</div>
+                  <div className="text-gray-400 text-sm">Artisan depuis 1985</div>
                 </div>
               </div>
               <div className="flex space-x-6 text-sm text-gray-400">
                 <span>📍 123 Rue de la Paix</span>
                 <span>📞 01 23 45 67 89</span>
-                <span>✉️ contact@premium-immo.fr</span>
+                <span>✉️ contact@boulangerie.fr</span>
               </div>
             </div>
           </div>
@@ -744,8 +744,8 @@ const MobilePreview = ({ demoState, activeControl }) => {
         <div className="bg-gray-800 text-white p-4">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-2 mb-2">
-              <div className="text-xl">🍞</div>
-              <div className="font-bold">Boulangerie Moderne</div>
+              <div className="text-xl">🏠</div>
+              <div className="font-bold">Premium Immobilier</div>
             </div>
             <div className="text-gray-400 text-xs space-y-1">
               <div>📍 123 Rue de la Paix</div>
