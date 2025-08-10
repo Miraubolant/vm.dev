@@ -248,33 +248,33 @@ const InteractiveDemo = () => {
             {/* Masquer les boutons de vue sur mobile */}
             {!isMobile && (
               <div className="flex space-x-4 mb-6">
-              <motion.button
-                onClick={() => setViewMode('desktop')}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-all cursor-pointer font-orbitron font-medium ${
-                  viewMode === 'desktop'
-                    ? 'bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-lg scale-105'
-                    : 'text-gray-400 hover:text-white hover:bg-electric-blue/30 hover:scale-102'
-                }`}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Monitor className="w-5 h-5" />
-                <span>Desktop</span>
-              </motion.button>
-              <motion.button
-                onClick={() => setViewMode('mobile')}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-all cursor-pointer font-orbitron font-medium ${
-                  viewMode === 'mobile'
-                    ? 'bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-lg scale-105'
-                    : 'text-gray-400 hover:text-white hover:bg-electric-blue/30 hover:scale-102'
-                }`}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Smartphone className="w-5 h-5" />
-                <span>Mobile</span>
-              </motion.button>
-            </div>
+                <motion.button
+                  onClick={() => setViewMode('desktop')}
+                  className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-all cursor-pointer font-orbitron font-medium ${
+                    viewMode === 'desktop'
+                      ? 'bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-lg scale-105'
+                      : 'text-gray-400 hover:text-white hover:bg-electric-blue/30 hover:scale-102'
+                  }`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Monitor className="w-5 h-5" />
+                  <span>Desktop</span>
+                </motion.button>
+                <motion.button
+                  onClick={() => setViewMode('mobile')}
+                  className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-all cursor-pointer font-orbitron font-medium ${
+                    viewMode === 'mobile'
+                      ? 'bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-lg scale-105'
+                      : 'text-gray-400 hover:text-white hover:bg-electric-blue/30 hover:scale-102'
+                  }`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Smartphone className="w-5 h-5" />
+                  <span>Mobile</span>
+                </motion.button>
+              </div>
             )}
 
             {/* Preview Container */}
@@ -534,40 +534,40 @@ const DesktopPreview = ({ demoState, activeControl }) => {
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {demoState.products.map((property, index) => (
-                <motion.div 
-                  key={index} 
-                  className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:scale-105 border border-gray-100 group"
-                  whileHover={{ y: -5 }}
-                >
-                  <div className="w-full h-32 bg-gradient-to-br from-blue-100 to-gray-100 rounded-lg mb-4 flex items-center justify-center text-4xl">
-                    {index === 0 ? '🏠' : index === 1 ? '🏢' : '🏡'}
-                  </div>
-                  <h3 className="font-bold text-gray-800 text-lg mb-2 group-hover:text-gray-900 transition-colors">{property.name}</h3>
-                  <div className="flex justify-between items-center">
-                    <p 
-                      className="text-2xl font-bold"
-                      style={{ color: demoState.primaryColor }}
-                    >
-                      {property.price.toLocaleString()}€
-                    </p>
-                    <button 
-                      className="px-4 py-2 rounded-lg text-white text-sm font-medium hover:opacity-90 transition-all"
-                      style={{ backgroundColor: demoState.primaryColor }}
-                    >
-                      Visiter
-                    </button>
-                  </div>
-                  <div className="mt-3 flex items-center text-yellow-400">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                    <span className="text-gray-500 text-sm ml-2">(4.9)</span>
-                  </div>
-                </motion.div>
-              ))}
+                {demoState.products.map((property, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:scale-105 border border-gray-100 group"
+                    whileHover={{ y: -5 }}
+                  >
+                    <div className="w-full h-32 bg-gradient-to-br from-blue-100 to-gray-100 rounded-lg mb-4 flex items-center justify-center text-4xl">
+                      {index === 0 ? '🏠' : index === 1 ? '🏢' : '🏡'}
+                    </div>
+                    <h3 className="font-bold text-gray-800 text-lg mb-2 group-hover:text-gray-900 transition-colors">{property.name}</h3>
+                    <div className="flex justify-between items-center">
+                      <p 
+                        className="text-2xl font-bold"
+                        style={{ color: demoState.primaryColor }}
+                      >
+                        {property.price.toLocaleString()}€
+                      </p>
+                      <button 
+                        className="px-4 py-2 rounded-lg text-white text-sm font-medium hover:opacity-90 transition-all"
+                        style={{ backgroundColor: demoState.primaryColor }}
+                      >
+                        Visiter
+                      </button>
+                    </div>
+                    <div className="mt-3 flex items-center text-yellow-400">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                      <span className="text-gray-500 text-sm ml-2">(4.9)</span>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>
@@ -654,24 +654,24 @@ const MobilePreview = ({ demoState, activeControl }) => {
             
             <div className="flex-1 flex items-center justify-center">
               <div className="text-center text-white px-4">
-              <motion.h1
-                className="text-2xl font-bold mb-3"
-                style={{ color: demoState.primaryColor }}
-                animate={activeControl === 'title' ? { scale: [1, 1.05, 1] } : {}}
-                transition={{ duration: 0.3 }}
-              >
-                {demoState.title}
-              </motion.h1>
-              <motion.p
-                className="text-base"
-                animate={activeControl === 'subtitle' ? { scale: [1, 1.05, 1] } : {}}
-                transition={{ duration: 0.3 }}
-              >
-                {demoState.subtitle}
-              </motion.p>
+                <motion.h1
+                  className="text-2xl font-bold mb-3"
+                  style={{ color: demoState.primaryColor }}
+                  animate={activeControl === 'title' ? { scale: [1, 1.05, 1] } : {}}
+                  transition={{ duration: 0.3 }}
+                >
+                  {demoState.title}
+                </motion.h1>
+                <motion.p
+                  className="text-base"
+                  animate={activeControl === 'subtitle' ? { scale: [1, 1.05, 1] } : {}}
+                  transition={{ duration: 0.3 }}
+                >
+                  {demoState.subtitle}
+                </motion.p>
+              </div>
             </div>
           </div>
-        </div>
         </div>
 
         {/* Mobile Products Section */}
