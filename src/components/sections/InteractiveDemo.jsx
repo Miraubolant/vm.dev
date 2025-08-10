@@ -42,7 +42,7 @@ const InteractiveDemo = () => {
     heroImage: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800',
     primaryColor: '#E94560',
     secondaryColor: '#0F3460',
-    properties: [
+    products: [
       { name: 'Villa moderne 4 pièces', price: 450000 },
       { name: 'Appartement centre-ville', price: 280000 },
       { name: 'Maison avec jardin', price: 320000 }
@@ -79,7 +79,7 @@ const InteractiveDemo = () => {
         heroImage: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800',
         primaryColor: '#E94560',
         secondaryColor: '#0F3460',
-        properties: [
+        products: [
           { name: 'Villa moderne 4 pièces', price: 450000 },
           { name: 'Appartement centre-ville', price: 280000 },
           { name: 'Maison avec jardin', price: 320000 }
@@ -91,9 +91,9 @@ const InteractiveDemo = () => {
   };
 
   const updateProperty = (index, field, value) => {
-    const newProperties = [...demoState.properties];
-    newProperties[index] = { ...newProperties[index], [field]: value };
-    setDemoState({ ...demoState, properties: newProperties });
+    const newProducts = [...demoState.products];
+    newProducts[index] = { ...newProducts[index], [field]: value };
+    setDemoState({ ...demoState, products: newProducts });
   };
 
   return (
