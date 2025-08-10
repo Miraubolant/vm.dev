@@ -45,12 +45,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--electric-blue);
+  background: linear-gradient(135deg, var(--neon-red) 0%, var(--digital-orange) 100%);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--cyber-purple);
+  background: linear-gradient(135deg, var(--digital-orange) 0%, #FF6B35 100%);
 }
 
 /* Selection */
