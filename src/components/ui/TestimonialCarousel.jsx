@@ -78,9 +78,9 @@ const TestimonialCarousel = () => {
   };
 
   return (
-    <div className="bg-glass rounded-lg p-8 border-neon relative overflow-hidden">
+    <div className="bg-glass rounded-lg p-4 md:p-8 border-neon relative overflow-hidden">
       <motion.h3
-        className="font-orbitron font-bold text-2xl text-gradient mb-8 text-center"
+        className="font-orbitron font-bold text-xl md:text-2xl text-gradient mb-6 md:mb-8 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -88,7 +88,7 @@ const TestimonialCarousel = () => {
         TÉMOIGNAGES CLIENTS
       </motion.h3>
 
-      <div className="relative">
+      <div className="relative px-2 md:px-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -99,38 +99,37 @@ const TestimonialCarousel = () => {
             transition={{ duration: 0.5 }}
           >
             {/* Quote Icon */}
-            <Quote className="w-12 h-12 text-neon-red mx-auto mb-6 opacity-50" />
+            <Quote className="w-8 h-8 md:w-12 md:h-12 text-neon-red mx-auto mb-4 md:mb-6 opacity-50" />
 
             {/* Testimonial Text */}
-            <blockquote className="font-inter text-lg text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
+            <blockquote className="font-inter text-sm md:text-lg text-gray-300 mb-6 md:mb-8 leading-relaxed max-w-3xl mx-auto px-2">
               "{testimonials[currentIndex].text}"
             </blockquote>
 
-            {/* Rating */}
-            <div className="flex justify-center mb-4">
+            <div className="flex justify-center mb-3 md:mb-4">
               {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                <Star key={i} className="w-4 h-4 md:w-5 md:h-5 text-yellow-400 fill-current" />
               ))}
             </div>
 
             {/* Client Info */}
-            <div className="flex items-center justify-center space-x-4">
+            <div className="flex flex-col md:flex-row items-center justify-center space-y-3 md:space-y-0 md:space-x-4">
               <img
                 src={testimonials[currentIndex].avatar}
                 alt={testimonials[currentIndex].name}
-                className="w-16 h-16 rounded-full object-cover border-2 border-electric-blue"
+                className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-electric-blue"
               />
-              <div className="text-left">
-                <h4 className="font-orbitron font-bold text-white">
+              <div className="text-center md:text-left">
+                <h4 className="font-orbitron font-bold text-white text-sm md:text-base">
                   {testimonials[currentIndex].name}
                 </h4>
-                <p className="text-blue-400 text-sm">
+                <p className="text-blue-400 text-xs md:text-sm">
                   {testimonials[currentIndex].role}
                 </p>
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-400 text-xs md:text-sm">
                   {testimonials[currentIndex].company}
                 </p>
-                <p className="text-purple-400 text-xs mt-1">
+                <p className="text-purple-400 text-xs md:text-xs mt-1">
                   {testimonials[currentIndex].project}
                 </p>
               </div>
@@ -141,26 +140,26 @@ const TestimonialCarousel = () => {
         {/* Navigation Arrows */}
         <button
           onClick={goToPrevious}
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-electric-blue/20 hover:bg-electric-blue/40 rounded-full flex items-center justify-center transition-colors cursor-pointer"
+          className="absolute left-0 md:left-0 top-1/2 transform -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-electric-blue/20 hover:bg-electric-blue/40 rounded-full flex items-center justify-center transition-colors cursor-pointer"
         >
-          <ChevronLeft className="w-6 h-6 text-blue-400" />
+          <ChevronLeft className="w-4 h-4 md:w-6 md:h-6 text-blue-400" />
         </button>
 
         <button
           onClick={goToNext}
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-electric-blue/20 hover:bg-electric-blue/40 rounded-full flex items-center justify-center transition-colors cursor-pointer"
+          className="absolute right-0 md:right-0 top-1/2 transform -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-electric-blue/20 hover:bg-electric-blue/40 rounded-full flex items-center justify-center transition-colors cursor-pointer"
         >
-          <ChevronRight className="w-6 h-6 text-blue-400" />
+          <ChevronRight className="w-4 h-4 md:w-6 md:h-6 text-blue-400" />
         </button>
       </div>
 
       {/* Dots Indicator */}
-      <div className="flex justify-center space-x-2 mt-8">
+      <div className="flex justify-center space-x-2 mt-6 md:mt-8">
         {testimonials.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all cursor-pointer ${
+            className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all cursor-pointer ${
               index === currentIndex
                 ? 'bg-neon-red scale-125'
                 : 'bg-gray-600 hover:bg-gray-500'
@@ -171,7 +170,7 @@ const TestimonialCarousel = () => {
 
       {/* Auto-play indicator */}
       <div className="absolute top-4 right-4">
-        <div className={`w-2 h-2 rounded-full ${isAutoPlaying ? 'bg-green-400' : 'bg-gray-400'}`} />
+        <div className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full ${isAutoPlaying ? 'bg-green-400' : 'bg-gray-400'}`} />
       </div>
     </div>
   );

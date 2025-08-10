@@ -161,24 +161,26 @@ const About = () => {
         </motion.div>
 
         {/* Skills Showcase */}
-        <motion.div
-          className="mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-        >
-          <SkillsShowcase />
-        </motion.div>
+        <div className="mt-12 md:mt-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <SkillsShowcase />
+          </motion.div>
+        </div>
 
         {/* Testimonials */}
-        <motion.div
-          className="mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
-        >
-          <TestimonialCarousel />
-        </motion.div>
+        <div className="mt-12 md:mt-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
+          >
+            <TestimonialCarousel />
+          </motion.div>
+        </div>
 
       </div>
     </section>

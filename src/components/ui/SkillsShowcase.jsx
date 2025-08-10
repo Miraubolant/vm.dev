@@ -44,7 +44,7 @@ const SkillsShowcase = () => {
   const SkillBar = ({ skill, index, categoryIndex }) => {
     return (
       <motion.div
-        className="mb-4"
+        className="mb-3 md:mb-4"
         initial={{ opacity: 0, x: -50 }}
         animate={{ 
           opacity: inView ? 1 : 0, 
@@ -55,16 +55,16 @@ const SkillsShowcase = () => {
           delay: categoryIndex * 0.2 + index * 0.1 
         }}
       >
-        <div className="flex justify-between items-center mb-2">
-          <span className="font-orbitron font-medium text-white">
+        <div className="flex justify-between items-center mb-1 md:mb-2">
+          <span className="font-orbitron font-medium text-white text-sm md:text-base">
             {skill.name}
           </span>
-          <span className="text-gray-400 text-sm">
+          <span className="text-gray-400 text-xs md:text-sm">
             {skill.level}%
           </span>
         </div>
         
-        <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+        <div className="w-full bg-gray-700 rounded-full h-1.5 md:h-2 overflow-hidden">
           <motion.div
             className="h-full rounded-full"
             style={{ backgroundColor: skill.color }}
@@ -82,9 +82,9 @@ const SkillsShowcase = () => {
   };
 
   return (
-    <div className="bg-glass rounded-lg p-8 border-neon" ref={ref}>
+    <div className="bg-glass rounded-lg p-4 md:p-8 border-neon" ref={ref}>
       <motion.h3
-        className="font-orbitron font-bold text-2xl text-gradient mb-8 text-center"
+        className="font-orbitron font-bold text-xl md:text-2xl text-gradient mb-6 md:mb-8 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ 
           opacity: inView ? 1 : 0, 
@@ -95,7 +95,7 @@ const SkillsShowcase = () => {
         STACK TECHNIQUE
       </motion.h3>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
         {skills.map((category, categoryIndex) => (
           <motion.div
             key={category.category}
@@ -110,7 +110,7 @@ const SkillsShowcase = () => {
               delay: categoryIndex * 0.2 
             }}
           >
-            <h4 className="font-orbitron font-bold text-lg text-blue-400 mb-4 border-b border-electric-blue pb-2">
+            <h4 className="font-orbitron font-bold text-base md:text-lg text-blue-400 mb-3 md:mb-4 border-b border-electric-blue pb-2">
               {category.category}
             </h4>
             
