@@ -1,15 +1,28 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useState, useEffect } from 'react';
 
 const SkillsShowcase = ({ inView: parentInView }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true
   });
 
   // Use parent inView if provided, otherwise use local inView
-  const isVisible = parentInView !== undefined ? parentInView : inView;
+  const isVisible = isMobile || (parentInView !== undefined ? parentInView : inView);
 
   const skills = [
     {
@@ -48,14 +61,14 @@ const SkillsShowcase = ({ inView: parentInView }) => {
     return (
       <motion.div
         className="mb-3 md:mb-4"
-        initial={{ opacity: 0, x: -50 }}
+        initial={isMobile ? { opacity: 1 } : { opacity: 0, x: -50 }}
         animate={{ 
-          opacity: isVisible ? 1 : 0, 
-          x: isVisible ? 0 : -50 
+          opacity: 1, 
+          x: isMobile ? 0 : (isVisible ? 0 : -50)
         }}
         transition={{ 
-          duration: 0.6, 
-          delay: categoryIndex * 0.2 + index * 0.1 
+          duration: isMobile ? 0 : 0.6, 
+          delay: isMobile ? 0 : (categoryIndex * 0.2 + index * 0.1)
         }}
       >
         <div className="flex justify-between items-center mb-1 md:mb-2">
@@ -71,11 +84,11 @@ const SkillsShowcase = ({ inView: parentInView }) => {
           <motion.div
             className="h-full rounded-full"
             style={{ backgroundColor: skill.color }}
-            initial={{ width: 0 }}
-            animate={{ width: isVisible ? `${skill.level}%` : 0 }}
+            initial={{ width: isMobile ? `${skill.level}%` : 0 }}
+            animate={{ width: `${skill.level}%` }}
             transition={{ 
-              duration: 1, 
-              delay: categoryIndex * 0.2 + index * 0.1 + 0.3,
+              duration: isMobile ? 0 : 1, 
+              delay: isMobile ? 0 : (categoryIndex * 0.2 + index * 0.1 + 0.3),
               ease: 'easeOut'
             }}
           />
@@ -88,12 +101,12 @@ const SkillsShowcase = ({ inView: parentInView }) => {
     <div className="bg-glass rounded-lg p-4 md:p-8 border-neon" ref={ref}>
       <motion.h3
         className="font-orbitron font-bold text-xl md:text-2xl text-gradient mb-6 md:mb-8 text-center"
-        initial={{ opacity: 0, y: 20 }}
+        initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         animate={{ 
-          opacity: isVisible ? 1 : 0, 
-          y: isVisible ? 0 : 20 
+          opacity: 1, 
+          y: 0
         }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: isMobile ? 0 : 0.6 }}
       >
         STACK TECHNIQUE
       </motion.h3>
@@ -103,14 +116,14 @@ const SkillsShowcase = ({ inView: parentInView }) => {
           <motion.div
             key={category.category}
             className="space-y-4"
-            initial={{ opacity: 0, y: 30 }}
+            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             animate={{ 
-              opacity: isVisible ? 1 : 0, 
-              y: isVisible ? 0 : 30 
+              opacity: 1, 
+              y: 0
             }}
             transition={{ 
-              duration: 0.6, 
-              delay: categoryIndex * 0.2 
+              duration: isMobile ? 0 : 0.6, 
+              delay: isMobile ? 0 : (categoryIndex * 0.2)
             }}
           >
             <h4 className="font-orbitron font-bold text-base md:text-lg text-blue-400 mb-3 md:mb-4 border-b border-electric-blue pb-2">
