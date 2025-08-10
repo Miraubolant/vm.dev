@@ -744,8 +744,8 @@ const MobilePreview = ({ demoState, activeControl }) => {
         <div className="bg-gray-800 text-white p-4">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-2 mb-2">
-              <div className="text-xl">🏠</div>
-              <div className="font-bold">Premium Immobilier</div>
+              <div className="text-xl">🍞</div>
+              <div className="font-bold">Boulangerie Moderne</div>
             </div>
             <div className="text-gray-400 text-xs space-y-1">
               <div>📍 123 Rue de la Paix</div>
