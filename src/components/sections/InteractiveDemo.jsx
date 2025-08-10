@@ -17,13 +17,25 @@ import DigitalGrid from '../effects/DigitalGrid';
 import Button from '../ui/Button';
 
 const InteractiveDemo = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const [ref, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true
   });
 
   // État de la démo
-  const [viewMode, setViewMode] = useState('desktop');
+  const [viewMode, setViewMode] = useState(window.innerWidth < 768 ? 'mobile' : 'desktop');
   const [demoState, setDemoState] = useState({
     title: 'Boulangerie Moderne',
     subtitle: 'Artisan boulanger depuis 1985',
@@ -39,6 +51,16 @@ const InteractiveDemo = () => {
 
   const [activeControl, setActiveControl] = useState(null);
   const [isResetting, setIsResetting] = useState(false);
+
+  // Sur mobile, toujours visible. Sur desktop, dépend du scroll
+  const isVisible = isMobile || inView;
+
+  // Mettre à jour le viewMode automatiquement selon la taille d'écran
+  useEffect(() => {
+    if (isMobile && viewMode === 'desktop') {
+      setViewMode('mobile');
+    }
+  }, [isMobile, viewMode]);
 
   // Images disponibles pour la démo
   const availableImages = [
@@ -86,8 +108,8 @@ const InteractiveDemo = () => {
           className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ 
-            opacity: inView ? 1 : 0, 
-            y: inView ? 0 : 30 
+            opacity: isVisible ? 1 : 0, 
+            y: isVisible ? 0 : 30 
           }}
           transition={{ duration: 0.8 }}
         >
@@ -100,7 +122,7 @@ const InteractiveDemo = () => {
           <motion.div
             className="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto mt-6"
             initial={{ width: 0 }}
-            animate={{ width: inView ? 96 : 0 }}
+            animate={{ width: isVisible ? 96 : 0 }}
             transition={{ duration: 1, delay: 0.5 }}
           />
         </motion.div>
@@ -112,8 +134,8 @@ const InteractiveDemo = () => {
             className="lg:col-span-1 space-y-4"
             initial={{ opacity: 0, x: -50 }}
             animate={{ 
-              opacity: inView ? 1 : 0, 
-              x: inView ? 0 : -50 
+              opacity: isVisible ? 1 : 0, 
+              x: isVisible ? 0 : -50 
             }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
@@ -218,12 +240,14 @@ const InteractiveDemo = () => {
             className="lg:col-span-3"
             initial={{ opacity: 0, x: 50 }}
             animate={{ 
-              opacity: inView ? 1 : 0, 
-              x: inView ? 0 : 50 
+              opacity: isVisible ? 1 : 0, 
+              x: isVisible ? 0 : 50 
             }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <div className="flex space-x-4 mb-6">
+            {/* Masquer les boutons de vue sur mobile */}
+            {!isMobile && (
+              <div className="flex space-x-4 mb-6">
               <motion.button
                 onClick={() => setViewMode('desktop')}
                 className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-all cursor-pointer font-orbitron font-medium ${
@@ -251,6 +275,7 @@ const InteractiveDemo = () => {
                 <span>Mobile</span>
               </motion.button>
             </div>
+            )}
 
             {/* Preview Container */}
             <div className={`relative ${
@@ -347,8 +372,8 @@ const InteractiveDemo = () => {
           className="mt-6 grid grid-cols-3 gap-4 mx-4 md:mx-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ 
-            opacity: inView ? 1 : 0, 
-            y: inView ? 0 : 20 
+           opacity: isVisible ? 1 : 0, 
+           y: isVisible ? 0 : 20 
           }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
@@ -375,8 +400,8 @@ const InteractiveDemo = () => {
         className="text-center mt-12"
         initial={{ opacity: 0, y: 30 }}
         animate={{ 
-          opacity: inView ? 1 : 0, 
-          y: inView ? 0 : 30 
+          opacity: isVisible ? 1 : 0, 
+          y: isVisible ? 0 : 30 
         }}
         transition={{ duration: 0.8, delay: 1 }}
       >
