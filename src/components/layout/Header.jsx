@@ -107,7 +107,7 @@ const Header = () => {
           >
             <Code2 className="w-8 h-8 text-red-500" />
             <span className="font-orbitron font-bold text-xl text-gradient">
-              VM.DEV
+              MIRAUBOLANT
             </span>
           </motion.button>
 
