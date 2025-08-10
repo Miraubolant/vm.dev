@@ -18,6 +18,18 @@ import Button from '../ui/Button';
 import LazyImage from '../ui/LazyImage';
 
 const Portfolio = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const [ref, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true
@@ -25,6 +37,8 @@ const Portfolio = () => {
 
   const [activeFilter, setActiveFilter] = useState('all');
 
+  // Sur mobile, toujours visible. Sur desktop, dépend du scroll
+  const isVisible = isMobile || inView;
   const projects = [
     {
       id: 1,
@@ -195,8 +209,8 @@ const Portfolio = () => {
           className="text-center mb-8 md:mb-12 px-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ 
-            opacity: inView ? 1 : 0, 
-            y: inView ? 0 : 30 
+            opacity: isVisible ? 1 : 0, 
+            y: isVisible ? 0 : 30 
           }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
@@ -209,7 +223,7 @@ const Portfolio = () => {
           <motion.div
             className="w-16 md:w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto mt-4 md:mt-6"
             initial={{ width: 0 }}
-            animate={{ width: inView ? (window.innerWidth < 768 ? 64 : 96) : 0 }}
+            animate={{ width: isVisible ? (window.innerWidth < 768 ? 64 : 96) : 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           />
         </motion.div>
@@ -219,8 +233,8 @@ const Portfolio = () => {
           className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-12 px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ 
-            opacity: inView ? 1 : 0, 
-            y: inView ? 0 : 20 
+            opacity: isVisible ? 1 : 0, 
+            y: isVisible ? 0 : 20 
           }}
           transition={{ duration: 0.4, delay: 0.1 }}
         >
@@ -267,8 +281,8 @@ const Portfolio = () => {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ 
-            opacity: inView ? 1 : 0, 
-            y: inView ? 0 : 30 
+            opacity: isVisible ? 1 : 0, 
+            y: isVisible ? 0 : 30 
           }}
           transition={{ duration: 0.8, delay: 1 }}
         >
@@ -295,8 +309,8 @@ const Portfolio = () => {
           className="text-center mt-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ 
-            opacity: inView ? 1 : 0, 
-            y: inView ? 0 : 30 
+            opacity: isVisible ? 1 : 0, 
+            y: isVisible ? 0 : 30 
           }}
           transition={{ duration: 0.8, delay: 1.2 }}
         >

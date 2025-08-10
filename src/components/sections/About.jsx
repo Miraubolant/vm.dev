@@ -89,11 +89,25 @@ const PillarCard = ({ pillar, index, inView }) => {
 };
 
 const About = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true
   });
 
+  // Sur mobile, toujours visible. Sur desktop, dépend du scroll
+  const isVisible = isMobile || inView;
   return (
     <section id="about" className="section-padding relative overflow-hidden">
       {/* Background Effects */}
@@ -117,8 +131,8 @@ const About = () => {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ 
-            opacity: inView ? 1 : 0, 
-            y: inView ? 0 : 30 
+            opacity: isVisible ? 1 : 0, 
+            y: isVisible ? 0 : 30 
           }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
@@ -128,7 +142,7 @@ const About = () => {
           <motion.div
             className="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto"
             initial={{ width: 0 }}
-            animate={{ width: inView ? 96 : 0 }}
+            animate={{ width: isVisible ? 96 : 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           />
         </motion.div>
@@ -140,7 +154,7 @@ const About = () => {
               key={pillar.title}
               pillar={pillar}
               index={index}
-              inView={inView}
+              inView={isVisible}
             />
           ))}
         </div>
@@ -149,7 +163,7 @@ const About = () => {
         <motion.div
           className="mt-16 text-center"
           initial={{ opacity: 0 }}
-          animate={{ opacity: inView ? 1 : 0 }}
+          animate={{ opacity: isVisible ? 1 : 0 }}
           transition={{ duration: 0.8, delay: 1 }}
         >
           <p className="font-inter text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -164,20 +178,20 @@ const About = () => {
         <motion.div
           className="mt-12 md:mt-16"
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
+          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <SkillsShowcase inView={inView} />
+          <SkillsShowcase inView={isVisible} />
         </motion.div>
 
         {/* Testimonials */}
         <motion.div
           className="mt-12 md:mt-16"
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
+          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
           transition={{ duration: 0.6, delay: 1.0 }}
         >
-          <TestimonialCarousel inView={inView} />
+          <TestimonialCarousel inView={isVisible} />
         </motion.div>
 
       </div>

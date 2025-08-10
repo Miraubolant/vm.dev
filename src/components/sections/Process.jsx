@@ -168,11 +168,25 @@ const ProcessStep = ({ step, index, inView, isLast }) => {
 };
 
 const Process = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const [ref, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true
   });
 
+  // Sur mobile, toujours visible. Sur desktop, dépend du scroll
+  const isVisible = isMobile || inView;
   return (
     <section id="process" className="section-padding relative overflow-hidden">
       {/* Background Effects */}
@@ -185,15 +199,15 @@ const Process = () => {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ 
-            opacity: inView ? 1 : 0, 
-            y: inView ? 0 : 30 
+            opacity: isVisible ? 1 : 0, 
+            y: isVisible ? 0 : 30 
           }}
           transition={{ duration: 0.8 }}
         >
           <motion.h2 
             className="font-orbitron font-bold text-4xl md:text-6xl mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.8 }}
+            animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
             transition={{ duration: 0.6 }}
           >
             <span className="bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
@@ -204,7 +218,7 @@ const Process = () => {
           <motion.div
             className="flex items-center justify-center gap-2 mb-6"
             initial={{ opacity: 0 }}
-            animate={{ opacity: inView ? 1 : 0 }}
+            animate={{ opacity: isVisible ? 1 : 0 }}
             transition={{ delay: 0.3 }}
           >
             <Target className="w-5 h-5 text-neon-red" />
@@ -218,7 +232,7 @@ const Process = () => {
           <motion.div
             className="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto mt-6"
             initial={{ width: 0 }}
-            animate={{ width: inView ? 96 : 0 }}
+            animate={{ width: isVisible ? 96 : 0 }}
             transition={{ duration: 1, delay: 0.5 }}
           />
         </motion.div>
@@ -230,7 +244,7 @@ const Process = () => {
               key={step.title}
               step={step}
               index={index}
-              inView={inView}
+              inView={isVisible}
               isLast={index === PROCESS_STEPS.length - 1}
             />
           ))}
@@ -241,8 +255,8 @@ const Process = () => {
           className="mt-20 bg-gradient-to-r from-glass to-glass/50 rounded-2xl p-8 border border-electric-blue/30 text-center relative overflow-hidden"
           initial={{ opacity: 0, y: 30 }}
           animate={{ 
-            opacity: inView ? 1 : 0, 
-            y: inView ? 0 : 30 
+            opacity: isVisible ? 1 : 0, 
+            y: isVisible ? 0 : 30 
           }}
           transition={{ duration: 0.8, delay: 1.5 }}
         >

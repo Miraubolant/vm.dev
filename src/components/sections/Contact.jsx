@@ -22,6 +22,18 @@ import { useNotification } from '../../hooks/useNotification';
 import { useAnalytics } from '../../hooks/useAnalytics';
 
 const Contact = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const [ref, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true
@@ -34,6 +46,8 @@ const Contact = () => {
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
+  // Sur mobile, toujours visible. Sur desktop, dépend du scroll
+  const isVisible = isMobile || inView;
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     setSubmitStatus(null);
@@ -112,8 +126,8 @@ const Contact = () => {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ 
-            opacity: inView ? 1 : 0, 
-            y: inView ? 0 : 30 
+            opacity: isVisible ? 1 : 0, 
+            y: isVisible ? 0 : 30 
           }}
           transition={{ duration: 0.8 }}
         >
@@ -126,7 +140,7 @@ const Contact = () => {
           <motion.div
             className="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto mt-6"
             initial={{ width: 0 }}
-            animate={{ width: inView ? 96 : 0 }}
+            animate={{ width: isVisible ? 96 : 0 }}
             transition={{ duration: 1, delay: 0.5 }}
           />
         </motion.div>
@@ -137,8 +151,8 @@ const Contact = () => {
             className="bg-glass rounded-lg p-8 border-neon"
             initial={{ opacity: 0, x: -50 }}
             animate={{ 
-              opacity: inView ? 1 : 0, 
-              x: inView ? 0 : -50 
+              opacity: isVisible ? 1 : 0, 
+              x: isVisible ? 0 : -50 
             }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
@@ -306,8 +320,8 @@ const Contact = () => {
             className="space-y-8"
             initial={{ opacity: 0, x: 50 }}
             animate={{ 
-              opacity: inView ? 1 : 0, 
-              x: inView ? 0 : 50 
+              opacity: isVisible ? 1 : 0, 
+              x: isVisible ? 0 : 50 
             }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
@@ -321,8 +335,8 @@ const Contact = () => {
                     className="bg-glass rounded-lg p-6 border-neon glow-hover cursor-pointer"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ 
-                      opacity: inView ? 1 : 0, 
-                      y: inView ? 0 : 20 
+                      opacity: isVisible ? 1 : 0, 
+                      y: isVisible ? 0 : 20 
                     }}
                     transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
                     whileHover={{ scale: 1.02, y: -5 }}
@@ -355,8 +369,8 @@ const Contact = () => {
               className="bg-glass rounded-lg p-6 border-neon"
               initial={{ opacity: 0, y: 20 }}
               animate={{ 
-                opacity: inView ? 1 : 0, 
-                y: inView ? 0 : 20 
+                opacity: isVisible ? 1 : 0, 
+                y: isVisible ? 0 : 20 
               }}
               transition={{ duration: 0.8, delay: 1.2 }}
             >
