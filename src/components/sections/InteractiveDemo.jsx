@@ -475,7 +475,7 @@ const DesktopPreview = ({ demoState, activeControl }) => {
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70 flex items-center justify-center">
               {/* Navigation overlay */}
               <div className="absolute top-4 left-0 right-0 flex justify-between items-center px-8">
-                <div className="text-white font-bold text-lg opacity-90">🍞 Boulangerie</div>
+                <div className="text-white font-bold text-lg opacity-90">🏡 Agence Immobilière</div>
                 <div className="flex space-x-6 text-white/80 text-sm">
                   <span className="hover:text-white cursor-pointer transition-colors">Accueil</span>
                   <span className="hover:text-white cursor-pointer transition-colors">Produits</span>
