@@ -2,11 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-const SkillsShowcase = () => {
+const SkillsShowcase = ({ inView: parentInView }) => {
   const [ref, inView] = useInView({
-    threshold: 0.3,
+    threshold: 0.1,
     triggerOnce: true
   });
+
+  // Use parent inView if provided, otherwise use local inView
+  const isVisible = parentInView !== undefined ? parentInView : inView;
 
   const skills = [
     {
@@ -47,8 +50,8 @@ const SkillsShowcase = () => {
         className="mb-3 md:mb-4"
         initial={{ opacity: 0, x: -50 }}
         animate={{ 
-          opacity: inView ? 1 : 0, 
-          x: inView ? 0 : -50 
+          opacity: isVisible ? 1 : 0, 
+          x: isVisible ? 0 : -50 
         }}
         transition={{ 
           duration: 0.6, 
@@ -69,7 +72,7 @@ const SkillsShowcase = () => {
             className="h-full rounded-full"
             style={{ backgroundColor: skill.color }}
             initial={{ width: 0 }}
-            animate={{ width: inView ? `${skill.level}%` : 0 }}
+            animate={{ width: isVisible ? `${skill.level}%` : 0 }}
             transition={{ 
               duration: 1, 
               delay: categoryIndex * 0.2 + index * 0.1 + 0.3,
@@ -87,8 +90,8 @@ const SkillsShowcase = () => {
         className="font-orbitron font-bold text-xl md:text-2xl text-gradient mb-6 md:mb-8 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ 
-          opacity: inView ? 1 : 0, 
-          y: inView ? 0 : 20 
+          opacity: isVisible ? 1 : 0, 
+          y: isVisible ? 0 : 20 
         }}
         transition={{ duration: 0.6 }}
       >
@@ -102,8 +105,8 @@ const SkillsShowcase = () => {
             className="space-y-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ 
-              opacity: inView ? 1 : 0, 
-              y: inView ? 0 : 30 
+              opacity: isVisible ? 1 : 0, 
+              y: isVisible ? 0 : 30 
             }}
             transition={{ 
               duration: 0.6, 

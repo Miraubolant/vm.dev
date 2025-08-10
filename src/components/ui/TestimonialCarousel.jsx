@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 
-const TestimonialCarousel = () => {
+const TestimonialCarousel = ({ inView: parentInView }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  
+  // Use parent inView if provided, otherwise always show
+  const isVisible = parentInView !== undefined ? parentInView : true;
 
   const testimonials = [
     {
@@ -82,7 +85,7 @@ const TestimonialCarousel = () => {
       <motion.h3
         className="font-orbitron font-bold text-xl md:text-2xl text-gradient mb-6 md:mb-8 text-center"
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
         transition={{ duration: 0.6 }}
       >
         TÉMOIGNAGES CLIENTS
