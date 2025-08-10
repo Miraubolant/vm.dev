@@ -41,10 +41,10 @@ const AnimatedText = ({
       {displayText}
       {showCursor && (
         <motion.span
-          className={`inline-block w-2 h-10 ml-1 ${cursorColor}`}
+          className={`inline-block w-1 h-[0.8em] ml-1 ${cursorColor}`}
           animate={{ opacity: showCursorBlink ? [1, 0, 1] : 1 }}
           transition={{ 
-            duration: 0.3, 
+            duration: 0.8, 
             repeat: isTyping ? 0 : Infinity,
             ease: 'linear'
           }}
