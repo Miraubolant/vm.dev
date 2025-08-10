@@ -37,15 +37,15 @@ const InteractiveDemo = () => {
   // État de la démo
   const [viewMode, setViewMode] = useState(window.innerWidth < 768 ? 'mobile' : 'desktop');
   const [demoState, setDemoState] = useState({
-    title: 'Boulangerie Moderne',
-    subtitle: 'Artisan boulanger depuis 1985',
-    heroImage: 'https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Agence Premium Immobilier',
+    subtitle: 'Votre partenaire immobilier de confiance',
+    heroImage: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800',
     primaryColor: '#E94560',
     secondaryColor: '#0F3460',
-    products: [
-      { name: 'Pain de campagne', price: 3.50 },
-      { name: 'Croissant', price: 1.20 },
-      { name: 'Éclair au chocolat', price: 2.80 }
+    properties: [
+      { name: 'Villa moderne 4 pièces', price: 450000 },
+      { name: 'Appartement centre-ville', price: 280000 },
+      { name: 'Maison avec jardin', price: 320000 }
     ]
   });
 
@@ -64,25 +64,25 @@ const InteractiveDemo = () => {
 
   // Images disponibles pour la démo
   const availableImages = [
-    'https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/1586947/pexels-photo-1586947.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/209206/pexels-photo-209206.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/1070850/pexels-photo-1070850.jpeg?auto=compress&cs=tinysrgb&w=800'
+    'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800',
+    'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800',
+    'https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=800',
+    'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800'
   ];
 
   const resetDemo = () => {
     setIsResetting(true);
     setTimeout(() => {
       setDemoState({
-        title: 'Boulangerie Moderne',
-        subtitle: 'Artisan boulanger depuis 1985',
-        heroImage: 'https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=800',
+        title: 'Agence Premium Immobilier',
+        subtitle: 'Votre partenaire immobilier de confiance',
+        heroImage: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800',
         primaryColor: '#E94560',
         secondaryColor: '#0F3460',
-        products: [
-          { name: 'Pain de campagne', price: 3.50 },
-          { name: 'Croissant', price: 1.20 },
-          { name: 'Éclair au chocolat', price: 2.80 }
+        properties: [
+          { name: 'Villa moderne 4 pièces', price: 450000 },
+          { name: 'Appartement centre-ville', price: 280000 },
+          { name: 'Maison avec jardin', price: 320000 }
         ]
       });
       setActiveControl(null);
@@ -90,10 +90,10 @@ const InteractiveDemo = () => {
     }, 500);
   };
 
-  const updateProduct = (index, field, value) => {
-    const newProducts = [...demoState.products];
-    newProducts[index] = { ...newProducts[index], [field]: value };
-    setDemoState({ ...demoState, products: newProducts });
+  const updateProperty = (index, field, value) => {
+    const newProperties = [...demoState.properties];
+    newProperties[index] = { ...newProperties[index], [field]: value };
+    setDemoState({ ...demoState, properties: newProperties });
   };
 
   return (
