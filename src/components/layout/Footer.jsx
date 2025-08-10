@@ -234,22 +234,6 @@ const Footer = ({ onOpenLegalPage, onOpenSitemap }) => {
               <span className="font-inter text-sm">en France</span>
             </div>
 
-            {/* Tech Stack */}
-            <div className="flex items-center space-x-4 text-gray-400">
-              <span className="font-inter text-sm">Propulsé par :</span>
-              <div className="flex items-center space-x-2">
-                <span className="px-2 py-1 bg-electric-blue/20 text-blue-300 text-xs rounded border border-electric-blue/30">
-                  React
-                </span>
-                <span className="px-2 py-1 bg-cyber-purple/20 text-purple-300 text-xs rounded border border-cyber-purple/30">
-                  Tailwind
-                </span>
-                <span className="px-2 py-1 bg-neon-red/20 text-red-300 text-xs rounded border border-neon-red/30">
-                  Framer Motion
-                </span>
-              </div>
-            </div>
-
             {/* Back to Top */}
             <motion.button
               onClick={scrollToTop}
