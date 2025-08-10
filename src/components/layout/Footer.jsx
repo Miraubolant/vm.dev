@@ -99,7 +99,7 @@ const Footer = ({ onOpenLegalPage, onOpenSitemap }) => {
             <div className="flex items-center space-x-2 mb-6">
               <Code2 className="w-8 h-8 text-red-500" />
               <span className="font-orbitron font-bold text-xl text-gradient">
-                VM.DEV
+                MIRAUBOLANT
               </span>
             </div>
             <p className="font-inter text-gray-300 mb-6 leading-relaxed">
