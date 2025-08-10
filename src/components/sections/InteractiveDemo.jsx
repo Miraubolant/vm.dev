@@ -711,6 +711,7 @@ const MobilePreview = ({ demoState, activeControl }) => {
                       👁️
                     </button>
                 </div>
+              </div>
               </motion.div>
             ))}
           </div>
