@@ -528,34 +528,34 @@ const DesktopPreview = ({ demoState, activeControl }) => {
           <div className="p-8 bg-gradient-to-b from-white to-gray-50">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold mb-3 text-gray-800">Nos Spécialités</h2>
+                <h2 className="text-3xl font-bold mb-3 text-gray-800">Nos Biens d'Exception</h2>
                 <div className="w-20 h-1 mx-auto rounded-full" style={{ backgroundColor: demoState.primaryColor }}></div>
-                <p className="text-gray-600 mt-4">Découvrez nos produits artisanaux faits avec passion</p>
+                <p className="text-gray-600 mt-4">Découvrez notre sélection de biens immobiliers premium</p>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {demoState.products.map((product, index) => (
+              {demoState.products.map((property, index) => (
                 <motion.div 
                   key={index} 
                   className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:scale-105 border border-gray-100 group"
                   whileHover={{ y: -5 }}
                 >
-                  <div className="w-full h-32 bg-gradient-to-br from-orange-100 to-yellow-100 rounded-lg mb-4 flex items-center justify-center text-4xl">
-                    {index === 0 ? '🍞' : index === 1 ? '🥐' : '🍰'}
+                  <div className="w-full h-32 bg-gradient-to-br from-blue-100 to-gray-100 rounded-lg mb-4 flex items-center justify-center text-4xl">
+                    {index === 0 ? '🏠' : index === 1 ? '🏢' : '🏡'}
                   </div>
-                  <h3 className="font-bold text-gray-800 text-lg mb-2 group-hover:text-gray-900 transition-colors">{product.name}</h3>
+                  <h3 className="font-bold text-gray-800 text-lg mb-2 group-hover:text-gray-900 transition-colors">{property.name}</h3>
                   <div className="flex justify-between items-center">
                     <p 
                       className="text-2xl font-bold"
                       style={{ color: demoState.primaryColor }}
                     >
-                      {product.price.toFixed(2)}€
+                      {property.price.toLocaleString()}€
                     </p>
                     <button 
                       className="px-4 py-2 rounded-lg text-white text-sm font-medium hover:opacity-90 transition-all"
                       style={{ backgroundColor: demoState.primaryColor }}
                     >
-                      Ajouter
+                      Visiter
                     </button>
                   </div>
                   <div className="mt-3 flex items-center text-yellow-400">
@@ -564,7 +564,7 @@ const DesktopPreview = ({ demoState, activeControl }) => {
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     ))}
-                    <span className="text-gray-500 text-sm ml-2">(4.8)</span>
+                    <span className="text-gray-500 text-sm ml-2">(4.9)</span>
                   </div>
                 </motion.div>
               ))}
@@ -575,17 +575,17 @@ const DesktopPreview = ({ demoState, activeControl }) => {
           {/* CTA Section */}
           <div className="p-12 text-center relative overflow-hidden" style={{ backgroundColor: `${demoState.primaryColor}15` }}>
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Prêt à commander ?</h3>
-              <p className="text-gray-600 mb-6 max-w-md mx-auto">Contactez-nous pour passer commande ou pour plus d'informations</p>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Trouvez votre bien idéal</h3>
+              <p className="text-gray-600 mb-6 max-w-md mx-auto">Contactez nos experts pour une estimation gratuite ou une visite personnalisée</p>
               <div className="flex justify-center space-x-4">
                 <button
                   className="px-8 py-4 rounded-lg text-white font-semibold hover:opacity-90 transition-all shadow-lg hover:shadow-xl"
                   style={{ backgroundColor: demoState.primaryColor }}
                 >
-                  📞 Nous Contacter
+                  📞 Estimation Gratuite
                 </button>
                 <button className="px-8 py-4 border-2 rounded-lg font-semibold hover:bg-gray-50 transition-all" style={{ borderColor: demoState.primaryColor, color: demoState.primaryColor }}>
-                  📍 Nous Trouver
+                  📍 Nos Agences
                 </button>
               </div>
             </div>
@@ -603,16 +603,16 @@ const DesktopPreview = ({ demoState, activeControl }) => {
           <div className="bg-gray-800 text-white p-6">
             <div className="max-w-6xl mx-auto flex justify-between items-center">
               <div className="flex items-center space-x-4">
-                <div className="text-2xl">🍞</div>
+                <div className="text-2xl">🏠</div>
                 <div>
-                  <div className="font-bold">Boulangerie Moderne</div>
-                  <div className="text-gray-400 text-sm">Artisan depuis 1985</div>
+                  <div className="font-bold">Premium Immobilier</div>
+                  <div className="text-gray-400 text-sm">Votre partenaire depuis 1995</div>
                 </div>
               </div>
               <div className="flex space-x-6 text-sm text-gray-400">
-                <span>📍 123 Rue de la Paix</span>
+                <span>📍 15 Avenue des Champs</span>
                 <span>📞 01 23 45 67 89</span>
-                <span>✉️ contact@boulangerie.fr</span>
+                <span>✉️ contact@premium-immo.fr</span>
               </div>
             </div>
           </div>
@@ -644,7 +644,7 @@ const MobilePreview = ({ demoState, activeControl }) => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70 flex flex-col">
             {/* Mobile Navigation */}
             <div className="flex justify-between items-center p-4 text-white">
-              <div className="font-bold text-lg">🍞</div>
+              <div className="font-bold text-lg">🏠</div>
               <div className="w-6 h-6 flex flex-col justify-center cursor-pointer">
                 <div className="w-full h-0.5 bg-white mb-1"></div>
                 <div className="w-full h-0.5 bg-white mb-1"></div>
@@ -676,39 +676,39 @@ const MobilePreview = ({ demoState, activeControl }) => {
 
         {/* Mobile Products Section */}
         <div className="p-4">
-          <h2 className="text-xl font-bold mb-4 text-gray-800">Nos Spécialités</h2>
+          <h2 className="text-xl font-bold mb-4 text-gray-800">Nos Biens</h2>
           <div className="space-y-3">
-            {demoState.products.map((product, index) => (
+            {demoState.products.map((property, index) => (
               <motion.div 
                 key={index} 
                 className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all border border-gray-100 flex items-center space-x-4"
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-100 to-yellow-100 rounded-lg flex items-center justify-center text-2xl flex-shrink-0">
-                  {index === 0 ? '🍞' : index === 1 ? '🥐' : '🍰'}
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-gray-100 rounded-lg flex items-center justify-center text-2xl flex-shrink-0">
+                  {index === 0 ? '🏠' : index === 1 ? '🏢' : '🏡'}
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-bold text-gray-800 mb-1">{product.name}</h3>
+                  <h3 className="font-bold text-gray-800 mb-1">{property.name}</h3>
                   <div className="flex items-center text-yellow-400 mb-2">
                     {[...Array(5)].map((_, i) => (
                       <svg key={i} className="w-3 h-3 fill-current" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     ))}
-                    <span className="text-gray-500 text-xs ml-1">(4.8)</span>
+                    <span className="text-gray-500 text-xs ml-1">(4.9)</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <p 
                       className="text-lg font-bold"
                       style={{ color: demoState.primaryColor }}
                     >
-                      {product.price.toFixed(2)}€
+                      {property.price.toLocaleString()}€
                     </p>
                     <button 
                       className="px-3 py-1 rounded-lg text-white text-sm font-medium hover:opacity-90 transition-all"
                       style={{ backgroundColor: demoState.primaryColor }}
                     >
-                      +
+                      👁️
                     </button>
                   </div>
                 </div>
@@ -720,17 +720,17 @@ const MobilePreview = ({ demoState, activeControl }) => {
         {/* Mobile CTA Section */}
         <div className="p-6 text-center relative overflow-hidden" style={{ backgroundColor: `${demoState.primaryColor}15` }}>
           <div className="relative z-10">
-            <h3 className="text-lg font-bold text-gray-800 mb-2">Prêt à commander ?</h3>
-            <p className="text-gray-600 mb-4 text-sm">Contactez-nous dès maintenant</p>
+            <h3 className="text-lg font-bold text-gray-800 mb-2">Trouvez votre bien</h3>
+            <p className="text-gray-600 mb-4 text-sm">Estimation gratuite et visite personnalisée</p>
             <div className="space-y-3">
               <button
                 className="w-full py-4 rounded-xl text-white font-bold hover:opacity-90 transition-all hover:scale-105 text-base shadow-lg"
                 style={{ backgroundColor: demoState.primaryColor }}
               >
-                📞 Appeler Maintenant
+                📞 Estimation Gratuite
               </button>
               <button className="w-full py-3 border-2 rounded-xl font-semibold hover:bg-gray-50 transition-all text-sm" style={{ borderColor: demoState.primaryColor, color: demoState.primaryColor }}>
-                📍 Voir l'Adresse
+                📍 Nos Agences
               </button>
             </div>
           </div>
@@ -744,11 +744,11 @@ const MobilePreview = ({ demoState, activeControl }) => {
         <div className="bg-gray-800 text-white p-4">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-2 mb-2">
-              <div className="text-xl">🍞</div>
-              <div className="font-bold">Boulangerie Moderne</div>
+              <div className="text-xl">🏠</div>
+              <div className="font-bold">Premium Immobilier</div>
             </div>
             <div className="text-gray-400 text-xs space-y-1">
-              <div>📍 123 Rue de la Paix</div>
+              <div>📍 15 Avenue des Champs</div>
               <div>📞 01 23 45 67 89</div>
             </div>
           </div>
