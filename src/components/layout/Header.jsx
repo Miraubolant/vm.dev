@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollEffect } from '../../hooks/useScrollEffect';
 import { NAVIGATION_ITEMS } from '../../utils/constants';
 import { Menu, X, Code2 } from 'lucide-react';
@@ -148,50 +148,54 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <motion.div
-            className="md:hidden mobile-menu-container"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-glass rounded-lg mt-2 border border-electric-blue/30">
-              {NAVIGATION_ITEMS.map((item, index) => (
-                <motion.button
-                  key={item.href}
-                  className={`block w-full text-left px-4 py-3 text-base font-medium font-orbitron cursor-pointer transition-all duration-200 ${
-                    activeSection === item.href.slice(1)
-                      ? 'text-red-400 bg-red-500/20 border-l-4 border-red-400'
-                      : 'text-gray-300 hover:text-white hover:bg-electric-blue/20 hover:border-l-4 hover:border-electric-blue'
-                  } rounded-md border-l-4 border-transparent`}
-                  onClick={() => scrollToSection(item.href)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span className="flex items-center">
-                    <span className="w-2 h-2 bg-current rounded-full mr-3 opacity-60" />
-                    {item.label}
-                  </span>
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
-        )}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className="md:hidden mobile-menu-container absolute top-full left-0 right-0 z-50"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="mx-4 mt-2 px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-glass rounded-lg border border-electric-blue/30 shadow-xl">
+                {NAVIGATION_ITEMS.map((item, index) => (
+                  <motion.button
+                    key={item.href}
+                    className={`block w-full text-left px-4 py-3 text-base font-medium font-orbitron cursor-pointer transition-all duration-200 ${
+                      activeSection === item.href.slice(1)
+                        ? 'text-red-400 bg-red-500/20 border-l-4 border-red-400'
+                        : 'text-gray-300 hover:text-white hover:bg-electric-blue/20 hover:border-l-4 hover:border-electric-blue'
+                    } rounded-md border-l-4 border-transparent`}
+                    onClick={() => scrollToSection(item.href)}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    whileHover={{ x: 5 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span className="flex items-center">
+                      <span className="w-2 h-2 bg-current rounded-full mr-3 opacity-60" />
+                      {item.label}
+                    </span>
+                  </motion.button>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Mobile Overlay */}
-        {isOpen && (
-          <motion.div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setIsOpen(false)}
-          />
-        )}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+            />
+          )}
+        </AnimatePresence>
       </nav>
 
       {/* Navigation indicator */}
