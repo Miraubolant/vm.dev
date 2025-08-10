@@ -709,6 +709,7 @@ const MobilePreview = ({ demoState, activeControl }) => {
                       style={{ backgroundColor: demoState.primaryColor }}
                     >
                       👁️
+                    </button>
                 </div>
               </motion.div>
             ))}
