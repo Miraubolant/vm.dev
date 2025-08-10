@@ -90,7 +90,7 @@ const PillarCard = ({ pillar, index, inView }) => {
 
 const About = () => {
   const [ref, inView] = useInView({
-    threshold: 0.3,
+    threshold: 0.1,
     triggerOnce: true
   });
 
@@ -161,26 +161,24 @@ const About = () => {
         </motion.div>
 
         {/* Skills Showcase */}
-        <div className="mt-12 md:mt-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
-            <SkillsShowcase />
-          </motion.div>
-        </div>
+        <motion.div
+          className="mt-12 md:mt-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+        >
+          <SkillsShowcase inView={inView} />
+        </motion.div>
 
         {/* Testimonials */}
-        <div className="mt-12 md:mt-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
-            transition={{ duration: 0.6, delay: 1.0 }}
-          >
-            <TestimonialCarousel />
-          </motion.div>
-        </div>
+        <motion.div
+          className="mt-12 md:mt-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
+          transition={{ duration: 0.6, delay: 1.0 }}
+        >
+          <TestimonialCarousel inView={inView} />
+        </motion.div>
 
       </div>
     </section>
