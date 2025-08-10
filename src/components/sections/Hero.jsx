@@ -51,17 +51,12 @@ const Hero = () => {
             className="mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.8, duration: 0.4 }}
+            transition={{ delay: 0.8, duration: 0.4 }}
           >
             <h2 className="font-orbitron font-bold text-2xl md:text-4xl text-blue-300 mb-4">
-              <AnimatedText 
-                text={HERO_CONTENT.subtitle}
-                speed={45}
-                delay={2000}
-                showCursor={false}
-               cursorColor="bg-white"
-               className="text-white"
-              />
+              <span className="text-white">
+                {HERO_CONTENT.subtitle}
+              </span>
             </h2>
           </motion.div>
 
